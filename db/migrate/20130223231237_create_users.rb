@@ -1,30 +1,52 @@
 class CreateUsers < ActiveRecord::Migration
-  def change
-    create_table :users do |t|
-      t.string :name
-      t.string :handle
-      t.string :release_authorization
-      t.string :paypal_email
-      t.string :keycard_number
-      t.date :birthday
-      t.string :phone_number
-      t.string :mailing_address
-      t.string :sponsor_1_name
-      t.string :sponsor_2_name
-      t.string :level
-      t.date :date_of_form
-      t.date :date_joined
-      t.string :ec_name
-      t.string :ec_relation
-      t.string :ec_home
-      t.string :ec_cell
-      t.string :ec_second_name
-      t.string :ec_second_relation
-      t.string :ec_second_home
-      t.string :ec_second_cell
-      t.string :ec_allergies
+  def up
+    add_column :users, :name, :string
+    add_column :users, :handle, :string
+    add_column :users, :release_authorization, :string
+    add_column :users, :paypal_email, :string
+    add_column :users, :keycard_number, :string
+    add_column :users, :birthday, :date
+    add_column :users, :phone_number, :string
+    add_column :users, :mailing_address, :string
+    add_column :users, :sponsor_1_name, :string
+    add_column :users, :sponsor_2_name, :string
+    add_column :users, :level, :string
+    add_column :users, :date_of_form, :date
+    add_column :users, :date_joined, :date
+    add_column :users, :ec_name, :string
+    add_column :users, :ec_relation, :string
+    add_column :users, :ec_home, :string
+    add_column :users, :ec_cell, :string
+    add_column :users, :ec_second_name, :string
+    add_column :users, :ec_second_relation, :string
+    add_column :users, :ec_second_home, :string
+    add_column :users, :ec_second_cell, :string
+    add_column :users, :ec_allergies, :string
+  end
 
-      t.timestamps
-    end
+  def down
+    remove_column :users, :name
+    remove_column :users, :handle
+    remove_column :users, :release_authorization
+    remove_column :users, :paypal_email
+    remove_column :users, :keycard_number
+    remove_column :users, :birthday
+    remove_column :users, :phone_number
+    remove_column :users, :mailing_address
+    remove_column :users, :sponsor_1_name
+    remove_column :users, :sponsor_2_name
+    remove_column :users, :level
+    remove_column :users, :date_of_form
+    remove_column :users, :date_joined
+    remove_column :users, :ec_name
+    remove_column :users, :ec_relation
+    remove_column :users, :ec_home
+    remove_column :users, :ec_cell
+    remove_column :users, :ec_second_name
+    remove_column :users, :ec_second_relation
+    remove_column :users, :ec_second_home
+    remove_column :users, :ec_second_cell
+    remove_column :users, :ec_allergies
+ 
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130223222328) do
+ActiveRecord::Schema.define(:version => 20130223231237) do
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -26,6 +26,28 @@ ActiveRecord::Schema.define(:version => 20130223222328) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "name"
+    t.string   "handle"
+    t.string   "release_authorization"
+    t.string   "paypal_email"
+    t.string   "keycard_number"
+    t.date     "birthday"
+    t.string   "phone_number"
+    t.string   "mailing_address"
+    t.string   "sponsor_1_name"
+    t.string   "sponsor_2_name"
+    t.string   "level"
+    t.date     "date_of_form"
+    t.date     "date_joined"
+    t.string   "ec_name"
+    t.string   "ec_relation"
+    t.string   "ec_home"
+    t.string   "ec_cell"
+    t.string   "ec_second_name"
+    t.string   "ec_second_relation"
+    t.string   "ec_second_home"
+    t.string   "ec_second_cell"
+    t.string   "ec_allergies"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
