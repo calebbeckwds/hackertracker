@@ -1,0 +1,65 @@
+<h1>Listing users</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Handle</th>
+    <th>Release authorization</th>
+    <th>Paypal email</th>
+    <th>Keycard number</th>
+    <th>Birthday</th>
+    <th>Phone number</th>
+    <th>Mailing address</th>
+    <th>Sponsor 1 name</th>
+    <th>Sponsor 2 name</th>
+    <th>Level</th>
+    <th>Date of form</th>
+    <th>Date joined</th>
+    <th>Ec name</th>
+    <th>Ec relation</th>
+    <th>Ec home</th>
+    <th>Ec cell</th>
+    <th>Ec second name</th>
+    <th>Ec second relation</th>
+    <th>Ec second home</th>
+    <th>Ec second cell</th>
+    <th>Ec allergies</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.name %></td>
+    <td><%= user.handle %></td>
+    <td><%= user.release_authorization %></td>
+    <td><%= user.paypal_email %></td>
+    <td><%= user.keycard_number %></td>
+    <td><%= user.birthday %></td>
+    <td><%= user.phone_number %></td>
+    <td><%= user.mailing_address %></td>
+    <td><%= user.sponsor_1_name %></td>
+    <td><%= user.sponsor_2_name %></td>
+    <td><%= user.level %></td>
+    <td><%= user.date_of_form %></td>
+    <td><%= user.date_joined %></td>
+    <td><%= user.ec_name %></td>
+    <td><%= user.ec_relation %></td>
+    <td><%= user.ec_home %></td>
+    <td><%= user.ec_cell %></td>
+    <td><%= user.ec_second_name %></td>
+    <td><%= user.ec_second_relation %></td>
+    <td><%= user.ec_second_home %></td>
+    <td><%= user.ec_second_cell %></td>
+    <td><%= user.ec_allergies %></td>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User', new_user_path %>

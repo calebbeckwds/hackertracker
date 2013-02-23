@@ -1,0 +1,105 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :handle %><br />
+    <%= f.text_field :handle %>
+  </div>
+  <div class="field">
+    <%= f.label :release_authorization %><br />
+    <%= f.text_field :release_authorization %>
+  </div>
+  <div class="field">
+    <%= f.label :paypal_email %><br />
+    <%= f.text_field :paypal_email %>
+  </div>
+  <div class="field">
+    <%= f.label :keycard_number %><br />
+    <%= f.text_field :keycard_number %>
+  </div>
+  <div class="field">
+    <%= f.label :birthday %><br />
+    <%= f.date_select :birthday %>
+  </div>
+  <div class="field">
+    <%= f.label :phone_number %><br />
+    <%= f.text_field :phone_number %>
+  </div>
+  <div class="field">
+    <%= f.label :mailing_address %><br />
+    <%= f.text_field :mailing_address %>
+  </div>
+  <div class="field">
+    <%= f.label :sponsor_1_name %><br />
+    <%= f.text_field :sponsor_1_name %>
+  </div>
+  <div class="field">
+    <%= f.label :sponsor_2_name %><br />
+    <%= f.text_field :sponsor_2_name %>
+  </div>
+  <div class="field">
+    <%= f.label :level %><br />
+    <%= f.text_field :level %>
+  </div>
+  <div class="field">
+    <%= f.label :date_of_form %><br />
+    <%= f.date_select :date_of_form %>
+  </div>
+  <div class="field">
+    <%= f.label :date_joined %><br />
+    <%= f.date_select :date_joined %>
+  </div>
+  <div class="field">
+    <%= f.label :ec_name %><br />
+    <%= f.text_field :ec_name %>
+  </div>
+  <div class="field">
+    <%= f.label :ec_relation %><br />
+    <%= f.text_field :ec_relation %>
+  </div>
+  <div class="field">
+    <%= f.label :ec_home %><br />
+    <%= f.text_field :ec_home %>
+  </div>
+  <div class="field">
+    <%= f.label :ec_cell %><br />
+    <%= f.text_field :ec_cell %>
+  </div>
+  <div class="field">
+    <%= f.label :ec_second_name %><br />
+    <%= f.text_field :ec_second_name %>
+  </div>
+  <div class="field">
+    <%= f.label :ec_second_relation %><br />
+    <%= f.text_field :ec_second_relation %>
+  </div>
+  <div class="field">
+    <%= f.label :ec_second_home %><br />
+    <%= f.text_field :ec_second_home %>
+  </div>
+  <div class="field">
+    <%= f.label :ec_second_cell %><br />
+    <%= f.text_field :ec_second_cell %>
+  </div>
+  <div class="field">
+    <%= f.label :ec_allergies %><br />
+    <%= f.text_field :ec_allergies %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

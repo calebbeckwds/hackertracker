@@ -1,11 +1,49 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+one:
+  name: MyString
+  handle: MyString
+  release_authorization: MyString
+  paypal_email: MyString
+  keycard_number: MyString
+  birthday: 2013-02-23
+  phone_number: MyString
+  mailing_address: MyString
+  sponsor_1_name: MyString
+  sponsor_2_name: MyString
+  level: MyString
+  date_of_form: 2013-02-23
+  date_joined: 2013-02-23
+  ec_name: MyString
+  ec_relation: MyString
+  ec_home: MyString
+  ec_cell: MyString
+  ec_second_name: MyString
+  ec_second_relation: MyString
+  ec_second_home: MyString
+  ec_second_cell: MyString
+  ec_allergies: MyString
+
+two:
+  name: MyString
+  handle: MyString
+  release_authorization: MyString
+  paypal_email: MyString
+  keycard_number: MyString
+  birthday: 2013-02-23
+  phone_number: MyString
+  mailing_address: MyString
+  sponsor_1_name: MyString
+  sponsor_2_name: MyString
+  level: MyString
+  date_of_form: 2013-02-23
+  date_joined: 2013-02-23
+  ec_name: MyString
+  ec_relation: MyString
+  ec_home: MyString
+  ec_cell: MyString
+  ec_second_name: MyString
+  ec_second_relation: MyString
+  ec_second_home: MyString
+  ec_second_cell: MyString
+  ec_allergies: MyString
