@@ -11,78 +11,43 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.text_field :handle %>
-  </div>
-  <div class="field">
+  <div class="well">
+    <h3>Member Info</h3>
+    <%= f.text_field :name, placeholder: 'Member Name' %>
+    <%= f.text_field :handle, placeholder: 'Handle / Nick' %>
     <%= f.text_field :release_authorization %>
-  </div>
-  <div class="field">
-    <%= f.text_field :paypal_email %>
-  </div>
-  <div class="field">
-    <%= f.text_field :keycard_number %>
-  </div>
-
-  <div class='field'>
+    <%= f.text_field :paypal_email, placeholder: 'Paypal Email' %>
+    <%= f.text_field :keycard_number, placeholder: 'Keycard Number' %>
     <%= f.label :birthday %>
     <%= datepicker :user, :birthday, @user.birthday %>
+    <%= f.text_field :phone_number, placeholder: 'Phone Number' %>
+    <%= f.text_field :mailing_address, placeholder: 'Mailing Address' %>
+    <%= f.text_field :level, placeholder: 'Membership Level' %>
+  </div>
+  <div class="well">
+    <h3>Sponsors</h3>
+    <%= f.text_field :sponsor_1_name, placeholder: 'Sponsor 1' %>
+    <%= f.text_field :sponsor_2_name, placeholder: 'Sponsor 2' %>
   </div>
 
-  <div class="field">
-    <%= f.text_field :phone_number %>
-  </div>
-  <div class="field">
-    <%= f.text_field :mailing_address %>
-  </div>
-  <div class="field">
-    <%= f.text_field :sponsor_1_name %>
-  </div>
-  <div class="field">
-    <%= f.text_field :sponsor_2_name %>
-  </div>
-  <div class="field">
-    <%= f.text_field :level %>
-  </div>
-
-  <div class='field'>
+  <div class="well">
+    <h3>Dates</h3>
     <%= f.label :date_of_form %>
     <%= datepicker :user, :date_of_form, @user.date_of_form %>
-  </div>
-
-  <div class='field'>
     <%= f.label :date_joined %>
     <%= datepicker :user, :date_joined, @user.date_joined %>
   </div>
 
-  <div class="field">
-    <%= f.text_field :ec_name %>
-  </div>
-  <div class="field">
-    <%= f.text_field :ec_relation %>
-  </div>
-  <div class="field">
-    <%= f.text_field :ec_home %>
-  </div>
-  <div class="field">
-    <%= f.text_field :ec_cell %>
-  </div>
-  <div class="field">
-    <%= f.text_field :ec_second_name %>
-  </div>
-  <div class="field">
-    <%= f.text_field :ec_second_relation %>
-  </div>
-  <div class="field">
-    <%= f.text_field :ec_second_home %>
-  </div>
-  <div class="field">
-    <%= f.text_field :ec_second_cell %>
-  </div>
-  <div class="field">
+  <div class="well">
+    <h3>Emergency Contact Inof</h3>
+    <%= f.text_field :ec_name, placeholder: 'Name'%>
+    <%= f.text_field :ec_relation, placeholder: 'Relationship' %>
+    <%= f.text_field :ec_home, placeholder: 'Home Address' %>
+    <%= f.text_field :ec_cell, placeholder: 'Cell Phone' %>
+    <%= f.text_field :ec_second_name, placeholder: 'Name' %>
+    <%= f.text_field :ec_second_relation, placeholder: 'Relationship' %>
+    <%= f.text_field :ec_second_home, placeholder: 'Home Address' %>
+    <%= f.text_field :ec_second_cell, placeholder: 'Cell Phone' %>
     <%= f.text_field :ec_allergies %>
   </div>
   <div class="actions">

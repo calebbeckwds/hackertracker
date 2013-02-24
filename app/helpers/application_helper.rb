@@ -3,7 +3,7 @@ module ApplicationHelper
     begin
       dateval = value.strftime('%Y-%m-%d')
     rescue
-      dateval = ''
+      dateval = Time.now.to_date.strftime('%Y-%m-%d')
     end
 
     "<div class='input-append datepicker'>
