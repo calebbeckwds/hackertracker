@@ -47,6 +47,9 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
     hike (1.2.1)
+    httparty (0.10.0)
+      multi_json (~> 1.0)
+      multi_xml
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (2.2.1)
@@ -59,8 +62,12 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.21)
     multi_json (1.6.1)
+    multi_xml (0.5.2)
     mysql2 (0.3.11)
     orm_adapter (0.4.0)
+    paypal-sdk-core (0.1.5)
+      multi_json (~> 1.0)
+      xml-simple
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -108,6 +115,7 @@ GEM
       multi_json (~> 1.0, >= 1.0.2)
     warden (1.2.1)
       rack (>= 1.0)
+    xml-simple (1.1.2)
 
 PLATFORMS
   ruby
@@ -115,8 +123,10 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
+  httparty
   jquery-rails
   mysql2
+  paypal-sdk-core
   rails (= 3.2.12)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)

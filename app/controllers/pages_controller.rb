@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def landing
-    render layout: false
+#    render layout: false
   end
 end

@@ -12,4 +12,10 @@ class User < ActiveRecord::Base
             :keycard_number, :level, :mailing_address, :name, :paypal_email, 
             :phone_number, :release_authorization, :sponsor_1_name, 
             :sponsor_2_name
+
+  has_many :payments
+
+  def admin?
+    role == "admin"
+  end
 end

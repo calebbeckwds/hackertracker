@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130223231237) do
+ActiveRecord::Schema.define(:version => 20130224212437) do
+
+  create_table "payments", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "type"
+    t.string   "email"
+    t.string   "transactionid"
+    t.datetime "transaction_time"
+    t.string   "status"
+    t.decimal  "amount",           :precision => 10, :scale => 0
+    t.string   "currencycode"
+    t.decimal  "feeamt",           :precision => 10, :scale => 0
+    t.decimal  "netamt",           :precision => 10, :scale => 0
+    t.string   "name"
+    t.boolean  "dues",                                            :default => false
+    t.datetime "created_at",                                                         :null => false
+    t.datetime "updated_at",                                                         :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -48,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20130223231237) do
     t.string   "ec_second_home"
     t.string   "ec_second_cell"
     t.string   "ec_allergies"
+    t.string   "role"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

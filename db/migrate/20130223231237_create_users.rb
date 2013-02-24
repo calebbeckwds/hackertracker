@@ -22,6 +22,7 @@ class CreateUsers < ActiveRecord::Migration
     add_column :users, :ec_second_home, :string
     add_column :users, :ec_second_cell, :string
     add_column :users, :ec_allergies, :string
+    add_column :users, :role, :string
   end
 
   def down
@@ -47,6 +48,6 @@ class CreateUsers < ActiveRecord::Migration
     remove_column :users, :ec_second_home
     remove_column :users, :ec_second_cell
     remove_column :users, :ec_allergies
- 
+    remove_column :users, :role
   end
 end
