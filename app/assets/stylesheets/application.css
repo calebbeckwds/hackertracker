@@ -14,3 +14,7 @@
  *= require bootstrap-responsive
  *= require bootstrap-datetimepicker.min
  */
+
+.main-features {
+      margin-top:  80px;
+}
