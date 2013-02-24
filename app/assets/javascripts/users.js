@@ -1,5 +1,5 @@
 
 $(document).ready(function() {
-  $('#datetimepicker1').datetimepicker({ pickTime: false });
+  $('.datepicker').datetimepicker({ pickTime: false });
 });
 
