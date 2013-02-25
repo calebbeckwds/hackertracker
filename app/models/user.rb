@@ -18,4 +18,8 @@ class User < ActiveRecord::Base
   def admin?
     role == "admin"
   end
+
+  def set_admin(val)
+    self.admin = val
+  end
 end

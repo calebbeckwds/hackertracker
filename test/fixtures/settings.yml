@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  paypal_user: MyString
+  paypal_pass: MyString
+  paypal_signature: MyString
+
+two:
+  paypal_user: MyString
+  paypal_pass: MyString
+  paypal_signature: MyString

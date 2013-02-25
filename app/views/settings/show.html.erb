@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Paypal user:</b>
+  <%= @setting.paypal_user %>
+</p>
+
+<p>
+  <b>Paypal pass:</b>
+  <%= @setting.paypal_pass %>
+</p>
+
+<p>
+  <b>Paypal signature:</b>
+  <%= @setting.paypal_signature %>
+</p>
+
+
+<%= link_to 'Edit', edit_setting_path(@setting) %> |
+<%= link_to 'Back', settings_path %>

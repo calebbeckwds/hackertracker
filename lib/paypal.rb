@@ -3,7 +3,7 @@ require 'yaml'
 
 require 'httparty'
 
-class PaypalChecker
+class Paypal
   include HTTParty
   base_uri 'https://api-3t.paypal.com/nvp'
 

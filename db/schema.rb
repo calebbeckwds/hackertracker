@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130224212437) do
+ActiveRecord::Schema.define(:version => 20130224233857) do
 
   create_table "payments", :force => true do |t|
     t.integer  "user_id"
-    t.string   "type"
+    t.string   "transaction_type"
     t.string   "email"
     t.string   "transactionid"
     t.datetime "transaction_time"
@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(:version => 20130224212437) do
     t.boolean  "dues",                                            :default => false
     t.datetime "created_at",                                                         :null => false
     t.datetime "updated_at",                                                         :null => false
+  end
+
+  create_table "settings", :force => true do |t|
+    t.string   "paypal_user"
+    t.string   "paypal_pass"
+    t.string   "paypal_signature"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "users", :force => true do |t|

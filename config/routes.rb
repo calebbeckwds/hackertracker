@@ -1,4 +1,7 @@
 Hackertracker::Application.routes.draw do
+  resources :settings
+
+
   resources :payments
 
   devise_for :users

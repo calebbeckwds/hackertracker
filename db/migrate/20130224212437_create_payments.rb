@@ -2,7 +2,7 @@ class CreatePayments < ActiveRecord::Migration
   def change
     create_table :payments do |t|
       t.integer :user_id
-      t.string :type
+      t.string :transaction_type
       t.string :email
       t.string :transactionid
       t.datetime :transaction_time
