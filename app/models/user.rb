@@ -15,11 +15,22 @@ class User < ActiveRecord::Base
 
   has_many :payments
 
+  after_create :associate_payments
+
   def admin?
     role == "admin"
   end
 
   def set_admin(val)
     self.admin = val
+  end
+
+  def associate_payments
+    Payment.unassociated.recurring.each do |p|
+      if p.email.downcase == self.paypal_email.downcase
+        p.user = self
+        p.save
+      end
+    end
   end
 end
