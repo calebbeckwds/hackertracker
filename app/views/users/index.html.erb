@@ -17,7 +17,7 @@
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= user.name %></td>
+    <td><%= link_to user.name, edit_user_path(user) %></td>
     <td><%= user.handle %></td>
     <td><%= user.release_authorization %></td>
     <td><%= user.paypal_email %></td>

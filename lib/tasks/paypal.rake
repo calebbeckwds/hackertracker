@@ -43,13 +43,13 @@ namespace :payments do
     print transactions.to_yaml
   end
 
-  desc "Get a year's worth of payment records from Paypal"
-  task :paypal_year => :environment do
+  desc "Get a three month's worth of payment records from Paypal"
+  task :paypal_three_month => :environment do
     settings = Setting.first
     paypal = Paypal.new settings.paypal_user, settings.paypal_pass, settings.paypal_signature
 
     tomorrow = (Time.now+1.days).strftime('%Y-%m-%dT23:59:59Z')
-    yesterday = (Time.now-365.days).strftime('%Y-%m-%dT00:00:00Z')
+    yesterday = (Time.now-90.days).strftime('%Y-%m-%dT00:00:00Z')
 
     transactions = paypal.transaction_search startdate: yesterday, enddate: tomorrow
 

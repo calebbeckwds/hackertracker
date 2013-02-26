@@ -22,6 +22,6 @@ class Payment < ActiveRecord::Base
   end
 
   def associate_user_by_paypal_email
-    self.user = User.find_by_paypal_email(self.email)
+    self.user = User.find_by_paypal_email(self.email.downcase)
   end
 end
