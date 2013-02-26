@@ -75,6 +75,7 @@ GEM
     paypal-sdk-core (0.1.5)
       multi_json (~> 1.0)
       xml-simple
+    pg (0.14.1)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -138,6 +139,7 @@ DEPENDENCIES
   jquery-rails
   mysql2
   paypal-sdk-core
+  pg
   rails (= 3.2.12)
   sass-rails (~> 3.2.3)
   turbolinks
