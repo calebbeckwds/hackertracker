@@ -44,7 +44,7 @@ namespace :payments do
   end
 
   desc "Try to associate payments with members for payments that dont have members yet"
-  task :paypal_associate_members do
+  task :paypal_associate_members => :environment do
     Payment.unassociated.each &:associate_user_by_paypal_email
   end
 end
