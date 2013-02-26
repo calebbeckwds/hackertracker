@@ -19,7 +19,7 @@
 
 <% @payments.each do |payment| %>
   <tr>
-    <td><%= link_to payment.user.name, user_path(payment.user) %></td>
+    <td><%= link_to payment.user.name, user_path(payment.user) if user %></td>
     <td><%= payment.transaction_type %></td>
     <td><%= payment.email %></td>
     <td><%= payment.transactionid %></td>
