@@ -16,10 +16,12 @@
           <div class="navbar-content">
             <ul class="nav ">
               <li class="active">
-                <a href="#">Home</a> 
+                <%= link_to 'Home', root_path %>
+                <!--<a href="#">Home</a>--> 
               </li>
               <li>
-                <a href="#">Members</a> 
+                <%= link_to 'Members', users_path %>
+                <!--<a href="#">Members</a>--> 
               </li>
             </ul>
           </div>
@@ -33,10 +35,15 @@
         <div class="span3">
           <ul class="nav nav-list">
             <li class="active">
-              <a href="#">Member List</a> 
+              <%= link_to 'Member List', users_path %>
+             <!-- <a href="#">Member List</a> -->
             </li>
             <li>
-              <a href="#">Add Member</a> 
+              <%= link_to 'Add Member', new_user_path %>
+              <!--<a href="#">Add Member</a>--> 
+            </li>
+            <li>
+              <%= link_to 'View Payments', payments_path %>
             </li>
           </ul>
         </div>
