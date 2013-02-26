@@ -16,8 +16,8 @@
     <%= f.number_field :user_id %>
   </div>
   <div class="field">
-    <%= f.label :type %><br />
-    <%= f.text_field :type %>
+    <%= f.label :transaction_type %><br />
+    <%= f.text_field :transaction_type %>
   </div>
   <div class="field">
     <%= f.label :email %><br />
@@ -34,6 +34,10 @@
   <div class="field">
     <%= f.label :amount %><br />
     <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :transaction_time %><br />
+    <%= f.text_field :transaction_time %>
   </div>
   <div class="field">
     <%= f.label :currencycode %><br />

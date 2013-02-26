@@ -9,6 +9,7 @@ gem 'mysql2'
 gem 'devise'
 gem 'paypal-sdk-core'
 gem 'httparty'
+gem 'turbolinks'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -20,6 +21,11 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+end
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 gem 'jquery-rails'
