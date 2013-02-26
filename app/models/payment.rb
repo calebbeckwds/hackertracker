@@ -13,6 +13,7 @@ class Payment < ActiveRecord::Base
 
   scope :dues, where(dues: true)
   scope :latest, order(transaction_time: 'desc')
+  scope :unassociated, where(user_id: nil)
 
   def check_if_membership_dues
     if [ 'Payment', 'Recurring Payment' ].include?(self.transaction_type) and [ 20, 50, 100 ].include?(self.amount)
