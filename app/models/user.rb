@@ -33,4 +33,8 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  def latest_payment
+    self.payments.order(:transaction_time).last
+  end
 end

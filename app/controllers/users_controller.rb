@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.all.sort { |a,b| a.latest_payment.transaction_time > b.latest_payment.transaction_time }
 
     respond_to do |format|
       format.html # index.html.erb
