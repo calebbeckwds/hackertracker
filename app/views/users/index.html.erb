@@ -22,7 +22,7 @@
     <td><%= user.phone_number %></td>
     <td><%= user.level %></td>
     <td><%= user.date_joined %></td>
-    <td><%= u.latest_payment.amount %> @ <%= u.latest_payment.transaction_time %></td>
+    <td><%= user.latest_payment ? "#{user.latest_payment.amount} @ #{user.latest_payment.transaction_time}" : "(n/a)"%></td>
   </tr>
 <% end %>
 </table>
