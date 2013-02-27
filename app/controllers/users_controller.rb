@@ -4,7 +4,11 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all.sort { |a,b| a.latest_payment.transaction_time > b.latest_payment.transaction_time }
+    @users = User.all.sort do |a,b| 
+        a = a.latest_payment ? a.latest_payment.transaction_time : Time.now-365.days
+        b = b.latest_payment ? b.latest_payment.transaction_time : Time.now-365.days
+        a <=> b
+    end
 
     respond_to do |format|
       format.html # index.html.erb
