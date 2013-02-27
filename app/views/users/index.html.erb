@@ -13,7 +13,7 @@
   </tr>
 
 <% @users.each_with_index do |user, i| %>
-  <% late = user.latest_payment ? ( user.latest_payment.transaction_time < (Time.now - 31.days) ) : false %>
+  <% late = user.latest_payment ? ( user.latest_payment.transaction_time < (Time.now - 33.days) ) : false %>
   <tr class="<%= 'late' if late %>">
     <td><%= i+1 %></td>
     <td><%= link_to user.name, edit_user_path(user) %></td>
