@@ -24,6 +24,9 @@
                 <!--<a href="#">Members</a>--> 
               </li>
               <li>
+                <%= link_to 'Payments', payments_path %>
+              </li>
+              <li>
                 <%= link_to 'Sign in', new_user_session_path %>
               </li>
             </ul>
@@ -35,21 +38,19 @@
       <a class="btn btn-large btn-primary btn-block visible-phone" href="#"><span class="btn-label">Sign Up Today!</span></a>
       <div class="row main-features"></div>
       <div class="row">
-        <div class="span2">
+       <!-- <div class="span2">
           <ul class="nav nav-list">
             <li class="active">
               <%= link_to 'Member List', users_path %>
-             <!-- <a href="#">Member List</a> -->
             </li>
             <li>
               <%= link_to 'Add Member', new_user_path %>
-              <!--<a href="#">Add Member</a>--> 
             </li>
             <li>
               <%= link_to 'View Payments', payments_path %>
             </li>
           </ul>
-        </div>
+        </div>-->
         <div class="span10">
           
 		<%= yield %>
