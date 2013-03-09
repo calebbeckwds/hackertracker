@@ -15,7 +15,7 @@
     <h3>Member Info</h3>
     <%= f.text_field :name, placeholder: 'Member Name' %>
     <%= f.text_field :handle, placeholder: 'Handle / Nick' %>
-    <%= f.text_field :release_authorization %>
+    <%= f.text_field :email, placeholder: 'Contact Email' %>
     <%= f.text_field :paypal_email, placeholder: 'Paypal Email' %>
     <%= f.text_field :keycard_number, placeholder: 'Keycard Number' %>
     <%= f.label :birthday %>
@@ -42,13 +42,13 @@
     <h3>Emergency Contact Inof</h3>
     <%= f.text_field :ec_name, placeholder: 'Name'%>
     <%= f.text_field :ec_relation, placeholder: 'Relationship' %>
-    <%= f.text_field :ec_home, placeholder: 'Home Address' %>
+    <%= f.text_field :ec_home, placeholder: 'Home Phone' %>
     <%= f.text_field :ec_cell, placeholder: 'Cell Phone' %>
     <%= f.text_field :ec_second_name, placeholder: 'Name' %>
     <%= f.text_field :ec_second_relation, placeholder: 'Relationship' %>
     <%= f.text_field :ec_second_home, placeholder: 'Home Address' %>
     <%= f.text_field :ec_second_cell, placeholder: 'Cell Phone' %>
-    <%= f.text_field :ec_allergies %>
+    <%= f.text_field :ec_allergies, placeholder: 'Allergies' %>
   </div>
   <div class="actions">
     <%= f.submit %>
