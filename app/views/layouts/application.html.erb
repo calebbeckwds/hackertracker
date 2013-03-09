@@ -10,6 +10,15 @@
 
 
 <div class="navbar navbar-fixed-top">
+    <% if flash[:error] %>
+      <p class="flash-error"><%= flash[:error] %></p>
+    <% end %> 
+    <% if flash[:alert] %>
+      <p class="flash-error"><%= flash[:alert] %></p>
+    <% end %>
+    <% if flash[:notice] %>
+      <p class="flash-notice"><%= flash[:notice] %></p>
+    <% end %>
       <div class="navbar-inner">
         <div class="container">
           <a class="brand" href="#">Familab HackerTracker</a>
