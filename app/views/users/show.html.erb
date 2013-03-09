@@ -1,8 +1,8 @@
-<div class="alert">
+<!--<div class="alert">
   <button type="button" class="close" data-dismiss="alert">&times;</button>
   <%= notice %>
 </div>
-
+-->
 <p>
   <b>Name:</b>
   <%= @user.name %>
@@ -115,4 +115,5 @@
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Create Payment', new_payment_path %> |
 <%= link_to 'Back', users_path %>
