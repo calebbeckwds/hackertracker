@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
     self.payments.order(:transaction_time).last
   end
 
-  def generate_random_password
+  def generate_password
     self.password = Base64::encode64(rand.to_s[0..-4])
   end
 end
