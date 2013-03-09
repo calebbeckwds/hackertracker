@@ -50,6 +50,7 @@ class UsersController < ApplicationController
     @user.generate_password
 
     respond_to do |format|
+raise Error
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
