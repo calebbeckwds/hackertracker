@@ -5,11 +5,11 @@
  * 3) Need to set up title for modal
  * */
 //jQuery(function ($) {
-  //  var UserModal = {
-    //    container:  null;
-      //  init:  function () {
-        //  $(""/*1*/).click(function (e) {
-          //    e.preventDefault();
+//  var UserModal = {
+//    container:  null;
+//      init:  function () {
+//          $(""/*1*/).click(function (e) {
+//              e.preventDefault();
 
 //              $(""/*2*/).modal({
 //                overlayId:  'user-overlay',

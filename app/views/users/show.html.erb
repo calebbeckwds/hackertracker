@@ -3,11 +3,11 @@
   <%= notice %>
 </div>
 -->
+<div class="well">
 <p>
   <b>Name:</b>
   <%= @user.name %>
 </p>
-
 <p>
   <b>Handle:</b>
   <%= @user.handle %>
@@ -42,7 +42,8 @@
   <b>Mailing address:</b>
   <%= @user.mailing_address %>
 </p>
-
+</div>
+<div class="well">
 <p>
   <b>Sponsor 1 name:</b>
   <%= @user.sponsor_1_name %>
@@ -57,17 +58,18 @@
   <b>Level:</b>
   <%= @user.level %>
 </p>
-
+</div>
+<div class="well">
 <p>
   <b>Date of form:</b>
   <%= @user.date_of_form %>
 </p>
-
 <p>
   <b>Date joined:</b>
   <%= @user.date_joined %>
 </p>
-
+</div>
+<div class="well">
 <p>
   <b>Ec name:</b>
   <%= @user.ec_name %>
@@ -112,7 +114,7 @@
   <b>Ec allergies:</b>
   <%= @user.ec_allergies %>
 </p>
-
+</div>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Create Payment', new_payment_path %> |
