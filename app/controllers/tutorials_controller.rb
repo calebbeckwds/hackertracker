@@ -1,4 +1,6 @@
 class TutorialsController < ApplicationController
+  layout 'famiapp'
+
   # GET /tutorials
   # GET /tutorials.json
   def index

@@ -4,7 +4,7 @@ class UniqueItem < ActiveRecord::Base
   has_many :logs, :foreign_key => :fuid
   has_many :contacts, :foreign_key => :fuid
   has_many :caveats, :foreign_key => :fuid
-  has_many :howtos, :foreign_key => :fuid
+  has_many :tutorials, :foreign_key => :fuid
   has_many :tickets, :foreign_key => :fuid
 
   validates_presence_of :name, :area

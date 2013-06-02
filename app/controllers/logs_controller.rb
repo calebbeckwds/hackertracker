@@ -1,4 +1,6 @@
 class LogsController < ApplicationController
+  layout 'famiapp'
+
   # GET /logs
   # GET /logs.json
   def index

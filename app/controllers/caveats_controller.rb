@@ -1,4 +1,6 @@
 class CaveatsController < ApplicationController
+  layout 'famiapp'
+
   # GET /caveats
   # GET /caveats.json
   def index

@@ -1,4 +1,6 @@
 class ContactsController < ApplicationController
+  layout 'famiapp'
+
   # GET /contacts
   # GET /contacts.json
   def index

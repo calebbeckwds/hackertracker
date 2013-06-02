@@ -1,4 +1,6 @@
 class TicketsController < ApplicationController
+  layout 'famiapp'
+
   # GET /tickets
   # GET /tickets.json
   def index

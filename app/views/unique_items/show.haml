@@ -1,23 +1,59 @@
-%p#notice= notice
-%p
-  %b Loggable:
-  = @unique_item.loggable
-%p
-  %b Ticketable:
-  = @unique_item.ticketable
-%p
-  %b Area:
-  = @unique_item.area
-%p
-  %b Name:
-  = @unique_item.name
-%p
-  %b Photo:
-  = @unique_item.photo
+- if notice
+  .row-fluid
+    .alert.span12= notice
+
 .row-fluid
-  %a.span12.btn.btn-success{href: edit_unique_item_path(@unique_item)}
+  %h1.span12= @unique_item.name
+
+.row-fluid
+  .span12= @unique_item.photo
+
+.row-fluid
+  %h3.span12 Tickets
+  - @unique_item.tickets.each do |ticket|
+    %a.row-fluid{href: ticket_path(ticket)}
+      .span12.btn{ class: ( ticket.status ? '' : 'btn-error' )}
+        (
+        = ticket.user ? ticket.user.name : "USERNAME"
+        )
+        = ticket.body
+
+.row-fluid
+  %h3.span12 Howtos/Tutorials
+  - @unique_item.tutorials.each do |tutorial|
+    %a.row-fluid{href: tutorial.body.blank? ? tutorial.url : tutorial_path(tutorial) }
+      .span12.btn
+        = tutorial.body.blank? ? tutorial.url : tutorial.body
+
+.row-fluid
+  %h3.span12 Caveats
+  - @unique_item.caveats.each do |caveat|
+    %a.row-fluid{href: caveat_path(caveat)}
+      .span12
+        = caveat.body
+
+.row-fluid
+  %h3.span12 Contacts
+  - @unique_item.contacts.each do |contact|
+    %a.row-fluid{href: contact_path(contact)}
+      .span3= contact.handle
+      .span3= contact.name
+      .span3= contact.phone
+      .span3= contact.email
+
+.row-fluid
+  %h3.span12 Logs
+  - @unique_item.logs.each do |log|
+    %a.row-fluid{href: log_path(log)}
+      .span12
+        = log.body
+
+%br/
+%hr/
+%br/
+
+.row-fluid
+  %a.span6.btn.btn-success{href: edit_unique_item_path(@unique_item)}
     %h1 Edit
-|
-.row-fluid
-  %a.span12.btn.btn-success{href: new_unique_item_path}
+  %a.span6.btn.btn-info{href: new_unique_item_path}
     %h1 Back
