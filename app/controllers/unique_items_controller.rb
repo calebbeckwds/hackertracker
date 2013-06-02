@@ -1,4 +1,6 @@
 class UniqueItemsController < ApplicationController
+  layout 'famiapp'
+
   # GET /unique_items
   # GET /unique_items.json
   def index
