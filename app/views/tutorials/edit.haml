@@ -1,5 +1,5 @@
 %h1 Editing tutorial
 = render 'form'
-= link_to 'Show', @tutorial
+= link_to 'Show', unique_item_tutorial_path(@tutorial.unique_item, @tutorial)
 |
-\#{link_to 'Back', tutorials_path}
+= link_to 'Back', unique_item_path(@tutorial.unique_item)

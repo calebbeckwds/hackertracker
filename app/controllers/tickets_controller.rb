@@ -48,7 +48,7 @@ class TicketsController < ApplicationController
     respond_to do |format|
       if @ticket.save
         format.html { redirect_to @ticket.unique_item, notice: 'Ticket was successfully created.' }
-        format.json { render json: @ticket.unique_item, status: :created, location: @ticket }
+        format.json { render json: @ticket, status: :created, location: @ticket }
       else
         format.html { render action: "new" }
         format.json { render json: @ticket.errors, status: :unprocessable_entity }
@@ -64,7 +64,7 @@ class TicketsController < ApplicationController
 
     respond_to do |format|
       if @ticket.update_attributes(params[:ticket])
-        format.html { redirect_to @ticket, notice: 'Ticket was successfully updated.' }
+        format.html { redirect_to @ticket.unique_item, notice: 'Ticket was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -80,7 +80,7 @@ class TicketsController < ApplicationController
     @ticket.destroy
 
     respond_to do |format|
-      format.html { redirect_to tickets_url }
+      format.html { redirect_to @ticket.unique_item }
       format.json { head :no_content }
     end
   end

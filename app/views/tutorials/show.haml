@@ -11,6 +11,6 @@
 %p
   %b Url:
   = @tutorial.url
-= link_to 'Edit', edit_tutorial_path(@tutorial)
+= link_to 'Edit', edit_unique_item_tutorial_path(@tutorial.unique_item, @tutorial)
 |
-\#{link_to 'Back', tutorials_path}
+= link_to 'Back', unique_item_path(@tutorial.unique_item)

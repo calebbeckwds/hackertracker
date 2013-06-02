@@ -41,7 +41,7 @@
 .row-fluid
   %h3.span12 
     Contacts
-    %a.btn{href: new_unique_item_tutorial_path(@unique_item)} Add
+    %a.btn{href: new_unique_item_contact_path(@unique_item)} Add
   - @unique_item.contacts.each do |contact|
     .row-fluid
       .span12
@@ -50,7 +50,7 @@
 .row-fluid
   %h3.span12
     Logs
-    %a.btn{href: new_unique_item_tutorial_path(@unique_item)} Add
+    %a.btn{href: new_unique_item_log_path(@unique_item)} Add
   - @unique_item.logs.each do |log|
     .row-fluid
       .span12

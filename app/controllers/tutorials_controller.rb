@@ -43,10 +43,11 @@ class TutorialsController < ApplicationController
   # POST /tutorials.json
   def create
     @tutorial = Tutorial.new(params[:tutorial])
+    @tutorial.fuid = params[:unique_item_id]
 
     respond_to do |format|
       if @tutorial.save
-        format.html { redirect_to @tutorial, notice: 'Tutorial was successfully created.' }
+        format.html { redirect_to @tutorial.unique_item, notice: 'Tutorial was successfully created.' }
         format.json { render json: @tutorial, status: :created, location: @tutorial }
       else
         format.html { render action: "new" }
@@ -62,7 +63,7 @@ class TutorialsController < ApplicationController
 
     respond_to do |format|
       if @tutorial.update_attributes(params[:tutorial])
-        format.html { redirect_to @tutorial, notice: 'Tutorial was successfully updated.' }
+        format.html { redirect_to @tutorial.unique_item, notice: 'Tutorial was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -78,7 +79,7 @@ class TutorialsController < ApplicationController
     @tutorial.destroy
 
     respond_to do |format|
-      format.html { redirect_to tutorials_url }
+      format.html { redirect_to @tutorial.unique_item }
       format.json { head :no_content }
     end
   end
