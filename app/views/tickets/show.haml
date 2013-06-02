@@ -1,7 +1,8 @@
+
+%h1
+  Ticket:
+  = @ticket.unique_item.name
 %p#notice= notice
-%p
-  %b Fuid:
-  = @ticket.fuid
 %p
   %b User:
   = @ticket.user_id
@@ -11,6 +12,19 @@
 %p
   %b Body:
   = @ticket.body
-= link_to 'Edit', edit_unique_item_ticket_path(@ticket.unique_item, @ticket)
-|
-\#{link_to 'Back', unique_item_path(@ticket.unique_item)}
+
+- if @ticket.status
+  .row-fluid
+    = form_for [@ticket.unique_item, @ticket] do |f|
+      = f.hidden_field :status, :value => false
+      = f.submit 'Resolve Ticket', :class => 'btn btn-success span12'
+- else
+  .row-fluid
+    = form_for [@ticket.unique_item, @ticket] do |f|
+      = f.hidden_field :status, :value => true
+      = f.submit 'Unresolve Ticket', :class => 'btn btn-warning span12'
+
+
+.row-fluid
+  = link_to 'Edit', edit_unique_item_ticket_path(@ticket.unique_item, @ticket), :class => 'btn span6'
+  = link_to 'Back', unique_item_path(@ticket.unique_item), :class => 'btn btn-info span6'

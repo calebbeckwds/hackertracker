@@ -11,7 +11,6 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
 //= require bootstrap-datetimepicker.min
@@ -20,4 +19,16 @@
 
 $(document).ready(function() {
 	$('.alert').delay(1000).fadeOut()
+
+  $('.show_closed_tickets').click(function(e) {
+    e.preventDefault();
+    $('.closed_tickets, .hide_closed_tickets').show()
+    $(this).hide()
+  })
+
+    $('.hide_closed_tickets').click(function(e) {
+    e.preventDefault();
+    $('.closed_tickets, .hide_closed_tickets').hide()
+    $('.show_closed_tickets').show()
+  })
 })
