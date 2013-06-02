@@ -26,7 +26,7 @@ class UniqueItemsController < ApplicationController
   # GET /unique_items/new
   # GET /unique_items/new.json
   def new
-    @unique_item = UniqueItem.new
+    @unique_item = UniqueItem.new status: true
 
     respond_to do |format|
       format.html # new.html.erb
