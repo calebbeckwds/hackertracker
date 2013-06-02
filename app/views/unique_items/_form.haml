@@ -6,11 +6,11 @@
 
   %fieldset
     .control-group
+      = f.check_box :loggable
       = f.label :loggable, :class => 'control-label'
-      .controls= f.check_box :loggable
     .control-group
+      = f.check_box :ticketable
       = f.label :ticketable, :class => 'control-label'
-      .controls= f.check_box :ticketable
     .control-group
       = f.label :area, :class => 'control-label'
       .controls= f.text_field :area
