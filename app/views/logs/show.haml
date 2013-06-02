@@ -8,6 +8,6 @@
 %p
   %b Body:
   = @log.body
-= link_to 'Edit', edit_log_path(@log)
+= link_to 'Edit', edit_unique_item_log_path(@log.unique_item, @log)
 |
-\#{link_to 'Back', logs_path}
+= link_to 'Back', unique_item_path(@log.unique_item)

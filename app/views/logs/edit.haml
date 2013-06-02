@@ -1,5 +1,5 @@
 %h1 Editing log
 = render 'form'
-= link_to 'Show', @log
+= link_to 'Show', unique_item_log_path(@log.unique_item, @log)
 |
-\#{link_to 'Back', logs_path}
+= link_to 'Back', unique_item_path(@log.unique_item)

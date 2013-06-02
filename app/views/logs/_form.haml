@@ -1,4 +1,4 @@
-= form_for([@log.unique_item, @log]) do |f|
+= form_for [@log.unique_item, @log] do |f|
   - if @log.errors.any?
     #error_explanation
       %h2

@@ -43,10 +43,11 @@ class ContactsController < ApplicationController
   # POST /contacts.json
   def create
     @contact = Contact.new(params[:contact])
+    @contact.fuid = params[:unique_item_id]
 
     respond_to do |format|
       if @contact.save
-        format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
+        format.html { redirect_to @contact.unique_item, notice: 'Contact was successfully created.' }
         format.json { render json: @contact, status: :created, location: @contact }
       else
         format.html { render action: "new" }
@@ -62,7 +63,7 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.update_attributes(params[:contact])
-        format.html { redirect_to @contact, notice: 'Contact was successfully updated.' }
+        format.html { redirect_to @contact.unique_item, notice: 'Contact was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -78,7 +79,7 @@ class ContactsController < ApplicationController
     @contact.destroy
 
     respond_to do |format|
-      format.html { redirect_to contacts_url }
+      format.html { redirect_to @contact.unique_item }
       format.json { head :no_content }
     end
   end

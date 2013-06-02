@@ -43,10 +43,11 @@ class LogsController < ApplicationController
   # POST /logs.json
   def create
     @log = Log.new(params[:log])
+    @log.fuid = params[:unique_item_id]
 
     respond_to do |format|
       if @log.save
-        format.html { redirect_to @log, notice: 'Log was successfully created.' }
+        format.html { redirect_to @log.unique_item, notice: 'Log was successfully created.' }
         format.json { render json: @log, status: :created, location: @log }
       else
         format.html { render action: "new" }
@@ -62,7 +63,7 @@ class LogsController < ApplicationController
 
     respond_to do |format|
       if @log.update_attributes(params[:log])
-        format.html { redirect_to @log, notice: 'Log was successfully updated.' }
+        format.html { redirect_to @log.unique_item, notice: 'Log was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -78,7 +79,7 @@ class LogsController < ApplicationController
     @log.destroy
 
     respond_to do |format|
-      format.html { redirect_to logs_url }
+      format.html { redirect_to @log.unique_item }
       format.json { head :no_content }
     end
   end
