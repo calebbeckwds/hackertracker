@@ -1,0 +1,19 @@
+%p#notice= notice
+%p
+  %b Loggable:
+  = @unique_item.loggable
+%p
+  %b Ticketable:
+  = @unique_item.ticketable
+%p
+  %b Area:
+  = @unique_item.area
+%p
+  %b Name:
+  = @unique_item.name
+%p
+  %b Photo:
+  = @unique_item.photo
+= link_to 'Edit', edit_unique_item_path(@unique_item), :class => 'btn'
+|
+= link_to 'Back', unique_items_path, :class => 'btn'

@@ -1,0 +1,15 @@
+%h1 Listing unique_items
+- @unique_items.each do |unique_item|
+  .row-fluid
+    .span4= unique_item.name
+    .span4= unique_item.area
+    .span2= unique_item.photo
+    .span1
+      = unique_item.ticketable? ? 't' : ' '
+      = unique_item.loggable? ? 'l' : ''
+    .span1
+      = link_to 'Show', unique_item, :class => 'btn'
+      = link_to 'Edit', edit_unique_item_path(unique_item), :class => 'btn'
+      = link_to 'Destroy', unique_item, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn'
+%br/
+= link_to 'New Unique item', new_unique_item_path, :class => 'btn'
