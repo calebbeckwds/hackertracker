@@ -4,21 +4,19 @@
       .alert.alert-error
         %li= msg
 
-  %fieldset
-    .control-group
-      = f.check_box :loggable
-      = f.label :loggable, :class => 'control-label'
-    .control-group
-      = f.check_box :ticketable
-      = f.label :ticketable, :class => 'control-label'
-    .control-group
-      = f.label :area, :class => 'control-label'
-      .controls= f.text_field :area
-    .control-group
-      = f.label :name, :class => 'control-label'
-      .controls= f.text_field :name
-    .control-group
-      = f.label :photo, :class => 'control-label'
-      .controls= f.text_field :photo
-    .actions
-      = f.submit :class => 'btn btn-success'
+  .control-group
+    = f.check_box :loggable
+    = f.label :loggable, :class => 'control-label'
+  .control-group
+    = f.check_box :ticketable
+    = f.label :ticketable, :class => 'control-label'
+  .control-group
+    = f.label :area, :class => 'control-label'
+    .controls= f.text_field :area, :class => 'span12'
+  .control-group
+    = f.label :name, :class => 'control-label'
+    .controls= f.text_field :name, :class => 'span12'
+  .control-group
+    = f.label :photo, :class => 'control-label'
+    .controls= f.text_field :photo, :class => 'span12'
+  = f.submit :class => 'btn btn-success span12'
