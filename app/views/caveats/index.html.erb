@@ -1,0 +1,27 @@
+<h1>Listing caveats</h1>
+
+<table>
+  <tr>
+    <th>Fuid</th>
+    <th>User</th>
+    <th>Body</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @caveats.each do |caveat| %>
+  <tr>
+    <td><%= caveat.fuid %></td>
+    <td><%= caveat.user_id %></td>
+    <td><%= caveat.body %></td>
+    <td><%= link_to 'Show', caveat %></td>
+    <td><%= link_to 'Edit', edit_caveat_path(caveat) %></td>
+    <td><%= link_to 'Destroy', caveat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Caveat', new_caveat_path %>

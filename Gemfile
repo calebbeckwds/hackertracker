@@ -14,6 +14,8 @@ gem 'httparty'
 gem 'turbolinks'
 gem 'taps'
 
+gem 'haml'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -26,9 +28,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'better_errors'
-
 group :development do
+  gem 'better_errors'
   gem 'binding_of_caller'
 end
 

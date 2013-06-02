@@ -1,4 +1,19 @@
 Hackertracker::Application.routes.draw do
+  resources :contacts
+
+
+  resources :caveats
+
+
+  resources :tutorials
+
+
+  resources :tickets
+
+
+  resources :logs
+
+
   resources :settings
 
 

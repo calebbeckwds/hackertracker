@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Fuid:</b>
+  <%= @caveat.fuid %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @caveat.user_id %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @caveat.body %>
+</p>
+
+
+<%= link_to 'Edit', edit_caveat_path(@caveat) %> |
+<%= link_to 'Back', caveats_path %>
