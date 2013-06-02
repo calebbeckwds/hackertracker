@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %b Fuid:
+  = @caveat.fuid
+%p
+  %b User:
+  = @caveat.user_id
+%p
+  %b Body:
+  = @caveat.body
+= link_to 'Edit', edit_caveat_path(@caveat)
+|
+\#{link_to 'Back', caveats_path}

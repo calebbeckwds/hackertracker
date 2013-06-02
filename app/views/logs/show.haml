@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %b Fuid:
+  = @log.fuid
+%p
+  %b User:
+  = @log.user_id
+%p
+  %b Body:
+  = @log.body
+= link_to 'Edit', edit_log_path(@log)
+|
+\#{link_to 'Back', logs_path}

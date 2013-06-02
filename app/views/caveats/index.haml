@@ -1,0 +1,19 @@
+%h1 Listing caveats
+%table
+  %tr
+    %th Fuid
+    %th User
+    %th Body
+    %th
+    %th
+    %th
+  - @caveats.each do |caveat|
+    %tr
+      %td= caveat.fuid
+      %td= caveat.user_id
+      %td= caveat.body
+      %td= link_to 'Show', caveat
+      %td= link_to 'Edit', edit_caveat_path(caveat)
+      %td= link_to 'Destroy', caveat, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Caveat', new_caveat_path

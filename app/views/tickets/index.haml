@@ -1,0 +1,21 @@
+%h1 Listing tickets
+%table
+  %tr
+    %th Fuid
+    %th User
+    %th Status
+    %th Body
+    %th
+    %th
+    %th
+  - @tickets.each do |ticket|
+    %tr
+      %td= ticket.fuid
+      %td= ticket.user_id
+      %td= ticket.status
+      %td= ticket.body
+      %td= link_to 'Show', ticket
+      %td= link_to 'Edit', edit_ticket_path(ticket)
+      %td= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Ticket', new_unique_item_ticket_path(params[:unique_item_id])
