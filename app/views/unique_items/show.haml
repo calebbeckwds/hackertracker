@@ -9,31 +9,39 @@
   .span12= @unique_item.photo
 
 .row-fluid
-  %h3.span12 Tickets
+  %h3.span12
+    Tickets
+    %a.btn{href: new_ticket_path} Add
   - @unique_item.tickets.each do |ticket|
     %a.row-fluid{href: ticket_path(ticket)}
-      .span12.btn{ class: ( ticket.status ? '' : 'btn-error' )}
+      .span12.btn{class: ( ticket.status ? '' : 'btn-error' )}
         (
         = ticket.user ? ticket.user.name : "USERNAME"
         )
         = ticket.body
 
 .row-fluid
-  %h3.span12 Howtos/Tutorials
+  %h3.span12
+    Howtos/Tutorials
+    %a.btn{href: new_tutorial_path} Add
   - @unique_item.tutorials.each do |tutorial|
     %a.row-fluid{href: tutorial.body.blank? ? tutorial.url : tutorial_path(tutorial) }
       .span12.btn
         = tutorial.body.blank? ? tutorial.url : tutorial.body
 
 .row-fluid
-  %h3.span12 Caveats
+  %h3.span12 
+    Caveats
+    %a.btn{href: new_caveat_path} Add
   - @unique_item.caveats.each do |caveat|
     %a.row-fluid{href: caveat_path(caveat)}
       .span12
         = caveat.body
 
 .row-fluid
-  %h3.span12 Contacts
+  %h3.span12 
+    Contacts
+    %a.btn{href: new_tutorial_path} Add
   - @unique_item.contacts.each do |contact|
     %a.row-fluid{href: contact_path(contact)}
       .span3= contact.handle
@@ -42,7 +50,9 @@
       .span3= contact.email
 
 .row-fluid
-  %h3.span12 Logs
+  %h3.span12
+    Logs
+    %a.btn{href: new_tutorial_path} Add
   - @unique_item.logs.each do |log|
     %a.row-fluid{href: log_path(log)}
       .span12
