@@ -13,8 +13,8 @@ gem 'paypal-sdk-core'
 gem 'httparty'
 gem 'turbolinks'
 gem 'taps'
-
 gem 'haml'
+gem 'paperclip'
 
 # Gems used only for assets and not required
 # in production environments by default.

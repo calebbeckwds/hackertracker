@@ -11,14 +11,14 @@
     = f.check_box :ticketable
     = f.label :ticketable, :class => 'control-label'
   .control-group
+    = f.label :photo
+    .controls= f.file_field :photo
+  .control-group
     = f.label :area, :class => 'control-label'
     .controls= f.text_field :area, :class => 'span12'
   .control-group
     = f.label :name, :class => 'control-label'
     .controls= f.text_field :name, :class => 'span12'
-  .control-group
-    = f.label :photo, :class => 'control-label'
-    .controls= f.text_field :photo, :class => 'span12'
   
   
 

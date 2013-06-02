@@ -9,6 +9,11 @@ class UniqueItem < ActiveRecord::Base
 
   validates_presence_of :name, :area
 
+  has_attached_file :photo, :styles => {
+    :medium => '300x300>', 
+    :thumb => '100x100>'
+  }
+
   def needs_work?
     tickets.where(status: true).length > 0
   end

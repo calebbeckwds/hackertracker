@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130602062806) do
+ActiveRecord::Schema.define(:version => 20130602120235) do
 
   create_table "caveats", :force => true do |t|
     t.integer  "fuid"
@@ -87,9 +87,12 @@ ActiveRecord::Schema.define(:version => 20130602062806) do
     t.boolean  "ticketable"
     t.string   "area"
     t.string   "name"
-    t.string   "photo"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "users", :force => true do |t|
