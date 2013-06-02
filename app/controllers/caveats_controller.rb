@@ -26,7 +26,7 @@ class CaveatsController < ApplicationController
   # GET /caveats/new
   # GET /caveats/new.json
   def new
-    @caveat = Caveat.new
+    @caveat = Caveat.new fuid: params[:unique_item_id]
 
     respond_to do |format|
       format.html # new.html.erb

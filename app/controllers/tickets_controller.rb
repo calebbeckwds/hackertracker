@@ -26,7 +26,7 @@ class TicketsController < ApplicationController
   # GET /tickets/new
   # GET /tickets/new.json
   def new
-    @ticket = Ticket.new
+    @ticket = Ticket.new fuid: params[:unique_item_id]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,11 +43,12 @@ class TicketsController < ApplicationController
   # POST /tickets.json
   def create
     @ticket = Ticket.new(params[:ticket])
+    @ticket.fuid = params[:unique_item_id]
 
     respond_to do |format|
       if @ticket.save
-        format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }
-        format.json { render json: @ticket, status: :created, location: @ticket }
+        format.html { redirect_to @ticket.unique_item, notice: 'Ticket was successfully created.' }
+        format.json { render json: @ticket.unique_item, status: :created, location: @ticket }
       else
         format.html { render action: "new" }
         format.json { render json: @ticket.errors, status: :unprocessable_entity }
@@ -59,6 +60,7 @@ class TicketsController < ApplicationController
   # PUT /tickets/1.json
   def update
     @ticket = Ticket.find(params[:id])
+    @ticket.fuid = params[:unique_item_id]
 
     respond_to do |format|
       if @ticket.update_attributes(params[:ticket])

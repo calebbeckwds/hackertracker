@@ -26,7 +26,7 @@ class ContactsController < ApplicationController
   # GET /contacts/new
   # GET /contacts/new.json
   def new
-    @contact = Contact.new
+    @contact = Contact.new fuid: params[:unique_item_id]
 
     respond_to do |format|
       format.html # new.html.erb

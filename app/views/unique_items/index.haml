@@ -1,12 +1,12 @@
 %br/
 - @unique_items.each do |unique_item|
   .row-fluid
-    %a.span12.btn{href: unique_item_path(unique_item)}
+    %a.span12.btn{href: unique_item_path(unique_item), class: ( unique_item.needs_work? ? 'btn-warning':'' )}
       %h1= unique_item.name
 
 %br/
 %br/
 
 .row-fluid
-  %a.span12.btn.btn-success{href: new_unique_item_path}
+  %a.span12.btn.btn-success{href: unique_items_path}
     %h1 Create New FamiItem

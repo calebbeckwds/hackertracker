@@ -26,7 +26,7 @@ class LogsController < ApplicationController
   # GET /logs/new
   # GET /logs/new.json
   def new
-    @log = Log.new
+    @log = Log.new fuid: params[:unique_item_id]
 
     respond_to do |format|
       format.html # new.html.erb

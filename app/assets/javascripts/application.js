@@ -16,3 +16,8 @@
 //= require bootstrap
 //= require bootstrap-datetimepicker.min
 //= require_tree .
+
+
+$(document).ready(function() {
+	$('.alert').delay(1000).fadeOut()
+})

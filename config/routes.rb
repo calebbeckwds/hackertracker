@@ -1,21 +1,11 @@
 Hackertracker::Application.routes.draw do
-  resources :unique_items
-
-
-  resources :contacts
-
-
-  resources :caveats
-
-
-  resources :tutorials
-
-
-  resources :tickets
-
-
-  resources :logs
-
+  resources :unique_items do
+    resources :contacts
+    resources :caveats
+    resources :tutorials
+    resources :tickets
+    resources :logs
+  end
 
   resources :settings
 

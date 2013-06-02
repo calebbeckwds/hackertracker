@@ -9,6 +9,10 @@ class UniqueItem < ActiveRecord::Base
 
   validates_presence_of :name, :area
 
+  def needs_work?
+    tickets.where(status: true).length > 0
+  end
+
   def ticketable?
   	!!ticketable
   end

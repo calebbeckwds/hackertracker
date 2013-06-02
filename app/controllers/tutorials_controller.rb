@@ -26,7 +26,7 @@ class TutorialsController < ApplicationController
   # GET /tutorials/new
   # GET /tutorials/new.json
   def new
-    @tutorial = Tutorial.new
+    @tutorial = Tutorial.new fuid: params[:unique_item_id]
 
     respond_to do |format|
       format.html # new.html.erb
