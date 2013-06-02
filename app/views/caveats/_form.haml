@@ -1,4 +1,4 @@
-= form_for([@caveat.unique_item, @caveat]) do |f|
+= form_for [@caveat.unique_item, @caveat] do |f|
   - if @caveat.errors.any?
     #error_explanation
       %h2

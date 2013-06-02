@@ -43,10 +43,11 @@ class CaveatsController < ApplicationController
   # POST /caveats.json
   def create
     @caveat = Caveat.new(params[:caveat])
+    @caveat.fuid = params[:unique_item_id]
 
     respond_to do |format|
       if @caveat.save
-        format.html { redirect_to @caveat, notice: 'Caveat was successfully created.' }
+        format.html { redirect_to @caveat.unique_item, notice: 'Caveat was successfully created.' }
         format.json { render json: @caveat, status: :created, location: @caveat }
       else
         format.html { render action: "new" }
@@ -62,7 +63,7 @@ class CaveatsController < ApplicationController
 
     respond_to do |format|
       if @caveat.update_attributes(params[:caveat])
-        format.html { redirect_to @caveat, notice: 'Caveat was successfully updated.' }
+        format.html { redirect_to @caveat.unique_item, notice: 'Caveat was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -78,7 +79,7 @@ class CaveatsController < ApplicationController
     @caveat.destroy
 
     respond_to do |format|
-      format.html { redirect_to caveats_url }
+      format.html { redirect_to @caveat.unique_item }
       format.json { head :no_content }
     end
   end
