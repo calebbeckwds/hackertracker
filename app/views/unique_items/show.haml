@@ -3,7 +3,12 @@
     .alert.span12= notice
 
 .row-fluid
-  %h1.span12= @unique_item.name
+  %h1.span8= @unique_item.name
+  .span4.pull-right
+    %a.btn.btn-success{href: edit_unique_item_path(@unique_item)}
+      %h1 Edit
+    %a.btn.btn-info{href: unique_items_path}
+      %h1 Back
 
 .row-fluid
   .span12= @unique_item.photo
@@ -60,8 +65,3 @@
 %hr/
 %br/
 
-.row-fluid
-  %a.span6.btn.btn-success{href: edit_unique_item_path(@unique_item)}
-    %h1 Edit
-  %a.span6.btn.btn-info{href: unique_items_path}
-    %h1 Back
