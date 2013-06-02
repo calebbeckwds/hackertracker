@@ -9,16 +9,22 @@
   .span12= @unique_item.photo
 
 .row-fluid
-  %h3.span12
-    Tickets
-    %a.btn{href: new_unique_item_ticket_path(@unique_item)} Add
-  - @unique_item.tickets.each do |ticket|
-    %a.row-fluid{href: unique_item_ticket_path(@unique_item, ticket)}
-      .span12.btn{class: ( ticket.status ? '' : 'btn-warning' )}
-        (
-        = ticket.user ? ticket.user.name : "USERNAME"
-        )
-        = ticket.body
+  .span12
+    Area:
+    = @unique_item.area
+
+- if @unique_item.ticketable?
+  .row-fluid
+    %h3.span12
+      Tickets
+      %a.btn{href: new_unique_item_ticket_path(@unique_item)} Add
+    - @unique_item.tickets.each do |ticket|
+      %a.row-fluid{href: unique_item_ticket_path(@unique_item, ticket)}
+        .span12.btn{class: ( ticket.status ? '' : 'btn-warning' )}
+          (
+          = ticket.user ? ticket.user.name : "USERNAME"
+          )
+          = ticket.body
 
 .row-fluid
   %h3.span12
@@ -47,14 +53,15 @@
       .span12
         = [contact.handle, contact.name, contact.phone, contact.email].join '    --    '
 
-.row-fluid
-  %h3.span12
-    Logs
-    %a.btn{href: new_unique_item_log_path(@unique_item)} Add
-  - @unique_item.logs.each do |log|
-    .row-fluid
-      .span12
-        = log.body
+- if @unique_item.loggable?
+  .row-fluid
+    %h3.span12
+      Logs
+      %a.btn{href: new_unique_item_log_path(@unique_item)} Add
+    - @unique_item.logs.each do |log|
+      .row-fluid
+        .span12
+          = log.body
 
 %br/
 %hr/
