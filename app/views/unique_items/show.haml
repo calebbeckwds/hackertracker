@@ -14,6 +14,10 @@
 %p
   %b Photo:
   = @unique_item.photo
-= link_to 'Edit', edit_unique_item_path(@unique_item), :class => 'btn'
+.row-fluid
+  %a.span12.btn.btn-success{href: edit_unique_item_path(unique_item)}
+    %h1 Edit
 |
-= link_to 'Back', unique_items_path, :class => 'btn'
+.row-fluid
+  %a.span12.btn.btn-success{href: new_unique_item_path}
+    %h1 Back

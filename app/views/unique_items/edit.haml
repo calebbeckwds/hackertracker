@@ -1,3 +1,5 @@
 %h1 Editing unique_item
 = render 'form'
-= link_to 'Back', unique_items_path, :class => 'btn span12'
+.row-fluid
+  %a.span12.btn.btn-success{href: unique_items_path}
+    %h1 Back
