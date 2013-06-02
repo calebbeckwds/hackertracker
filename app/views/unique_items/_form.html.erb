@@ -1,0 +1,37 @@
+<%= form_for(@unique_item) do |f| %>
+  <% if @unique_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@unique_item.errors.count, "error") %> prohibited this unique_item from being saved:</h2>
+
+      <ul>
+      <% @unique_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :loggable %><br />
+    <%= f.check_box :loggable %>
+  </div>
+  <div class="field">
+    <%= f.label :ticketable %><br />
+    <%= f.check_box :ticketable %>
+  </div>
+  <div class="field">
+    <%= f.label :area %><br />
+    <%= f.text_field :area %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :photo %><br />
+    <%= f.text_field :photo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

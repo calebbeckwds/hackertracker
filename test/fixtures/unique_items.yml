@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  loggable: false
+  ticketable: false
+  area: MyString
+  name: MyString
+  photo: MyString
+
+two:
+  loggable: false
+  ticketable: false
+  area: MyString
+  name: MyString
+  photo: MyString

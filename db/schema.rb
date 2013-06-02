@@ -11,7 +11,33 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130224233857) do
+ActiveRecord::Schema.define(:version => 20130602062806) do
+
+  create_table "caveats", :force => true do |t|
+    t.integer  "fuid"
+    t.integer  "user_id"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "contacts", :force => true do |t|
+    t.integer  "fuid"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "name"
+    t.string   "handle"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "logs", :force => true do |t|
+    t.integer  "fuid"
+    t.integer  "user_id"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "payments", :force => true do |t|
     t.integer  "user_id"
@@ -36,6 +62,34 @@ ActiveRecord::Schema.define(:version => 20130224233857) do
     t.string   "paypal_signature"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+  end
+
+  create_table "tickets", :force => true do |t|
+    t.integer  "fuid"
+    t.integer  "user_id"
+    t.boolean  "status"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "tutorials", :force => true do |t|
+    t.integer  "fuid"
+    t.integer  "user_id"
+    t.text     "body"
+    t.text     "url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "unique_items", :force => true do |t|
+    t.boolean  "loggable"
+    t.boolean  "ticketable"
+    t.string   "area"
+    t.string   "name"
+    t.string   "photo"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

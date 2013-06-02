@@ -1,0 +1,31 @@
+<h1>Listing unique_items</h1>
+
+<table>
+  <tr>
+    <th>Loggable</th>
+    <th>Ticketable</th>
+    <th>Area</th>
+    <th>Name</th>
+    <th>Photo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @unique_items.each do |unique_item| %>
+  <tr>
+    <td><%= unique_item.loggable %></td>
+    <td><%= unique_item.ticketable %></td>
+    <td><%= unique_item.area %></td>
+    <td><%= unique_item.name %></td>
+    <td><%= unique_item.photo %></td>
+    <td><%= link_to 'Show', unique_item %></td>
+    <td><%= link_to 'Edit', edit_unique_item_path(unique_item) %></td>
+    <td><%= link_to 'Destroy', unique_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Unique item', new_unique_item_path %>

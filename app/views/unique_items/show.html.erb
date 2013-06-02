@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Loggable:</b>
+  <%= @unique_item.loggable %>
+</p>
+
+<p>
+  <b>Ticketable:</b>
+  <%= @unique_item.ticketable %>
+</p>
+
+<p>
+  <b>Area:</b>
+  <%= @unique_item.area %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @unique_item.name %>
+</p>
+
+<p>
+  <b>Photo:</b>
+  <%= @unique_item.photo %>
+</p>
+
+
+<%= link_to 'Edit', edit_unique_item_path(@unique_item) %> |
+<%= link_to 'Back', unique_items_path %>
