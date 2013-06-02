@@ -25,7 +25,7 @@
       %a.btn{href: new_unique_item_ticket_path(@unique_item)} Add
     - @unique_item.tickets.each do |ticket|
       %a.row-fluid{href: unique_item_ticket_path(@unique_item, ticket)}
-        .span12.btn{class: ( ticket.status ? '' : 'btn-warning' )}
+        .span12.btn{class: ( ticket.status ? 'btn-warning' : '' )}
           (
           = ticket.user ? ticket.user.name : "USERNAME"
           )
