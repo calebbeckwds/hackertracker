@@ -3,25 +3,25 @@
     .alert.span12= notice
 
 .row-fluid
-  %h1.span12= @unique_item.name
+  %h1.span12.alert.alert-info
+    = @unique_item.name
+    %a.btn.btn-info{href: edit_unique_item_path(@unique_item)} Edit
 .row-fluid
-  %h4.span12
-    Area:
-    = @unique_item.area
-.row-fluid
-  .span4
-    %a.btn.btn-success{href: edit_unique_item_path(@unique_item)} Edit
-    %a.btn.btn-info{href: unique_items_path} Back
+  %h5.span12
+    = "FUID: #{@unique_item.fuid}"
+    %br/
+    = "Area: #{@unique_item.area}"
 
 - unless @unique_item.photo_file_name.blank?
   .row-fluid
-    .span12= image_tag @unique_item.photo.url(:medium)
+    %a.span12{href: @unique_item.photo.url(:medium)}
+      = image_tag @unique_item.photo.url(:medium)
 
 
 
 - if @unique_item.ticketable?
   .row-fluid
-    %h3.span12
+    %h3.span12.alert.alert-success
       Tickets
       %a.btn{href: new_unique_item_ticket_path(@unique_item)} Add
     - @unique_item.tickets.active.each do |ticket|
@@ -49,7 +49,7 @@
 
 
 .row-fluid
-  %h3.span12
+  %h3.span12.alert.alert-success
     Howtos/Tutorials
     %a.btn{href: new_unique_item_tutorial_path(@unique_item)} Add
   - @unique_item.tutorials.each do |tutorial|
@@ -58,7 +58,7 @@
         = tutorial.body.blank? ? tutorial.url : tutorial.body
 
 .row-fluid
-  %h3.span12 
+  %h3.span12.alert.alert-success
     Caveats
     %a.btn{href: new_unique_item_caveat_path(@unique_item)} Add
   - @unique_item.caveats.each do |caveat|
@@ -67,7 +67,7 @@
         = caveat.body
 
 .row-fluid
-  %h3.span12 
+  %h3.span12.alert.alert-success
     Contacts
     %a.btn{href: new_unique_item_contact_path(@unique_item)} Add
   - @unique_item.contacts.each do |contact|
@@ -77,7 +77,7 @@
 
 - if @unique_item.loggable?
   .row-fluid
-    %h3.span12
+    %h3.span12.alert.alert-success
       Logs
       %a.btn{href: new_unique_item_log_path(@unique_item)} Add
     - @unique_item.logs.each do |log|

@@ -18,7 +18,6 @@
 
 
 $(document).ready(function() {
-	$('.alert').delay(1000).fadeOut()
 
   $('.show_closed_tickets').click(function(e) {
     e.preventDefault();

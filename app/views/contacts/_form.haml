@@ -7,21 +7,13 @@
       %ul
         - @contact.errors.full_messages.each do |msg|
           %li= msg
-  .field
-    = f.label :phone
-    %br/
-    = f.text_field :phone
-  .field
-    = f.label :email
-    %br/
-    = f.text_field :email
-  .field
-    = f.label :name
-    %br/
-    = f.text_field :name
-  .field
-    = f.label :handle
-    %br/
-    = f.text_field :handle
-  .actions
-    = f.submit
+  .row-fluid
+    = f.text_field :phone, :placeholder => '(407) 123-4567', :class => 'span12'
+  .row-fluid
+    = f.text_field :email, :placeholder => 'derp@freemails.com (email)', :class => 'span12'
+  .row-fluid
+    = f.text_field :name, :placeholder => 'Derp Derpston (name)', :class => 'span12'
+  .row-fluid
+    = f.text_field :handle, :placeholder => 'derpsix123 (handle)'
+  .row-fluid
+    = f.submit :class => 'btn btn-info span12'
