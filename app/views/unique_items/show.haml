@@ -13,8 +13,9 @@
     %a.btn.btn-success{href: edit_unique_item_path(@unique_item)} Edit
     %a.btn.btn-info{href: unique_items_path} Back
 
-.row-fluid
-  .span12= image_tag @unique_item.photo.url(:medium)
+- unless @unique_item.photo_file_name.blank?
+  .row-fluid
+    .span12= image_tag @unique_item.photo.url(:medium)
 
 
 
