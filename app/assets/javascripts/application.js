@@ -18,7 +18,6 @@
 
 
 $(document).ready(function() {
-
   $('.show_closed_tickets').click(function(e) {
     e.preventDefault();
     $('.closed_tickets, .hide_closed_tickets').show()

@@ -10,6 +10,7 @@ class UniqueItem < ActiveRecord::Base
   validates_presence_of :name, :area
 
   has_attached_file :photo, :styles => {
+    :large => '900x900>',
     :medium => '300x300>', 
     :thumb => '100x100>'
   }
