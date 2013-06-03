@@ -14,8 +14,8 @@
 
 - unless @unique_item.photo_file_name.blank?
   .row-fluid
-    %a.span12{href: @unique_item.photo.url(:medium)}
-      = image_tag @unique_item.photo.url(:medium)
+    %a.span12{href: @unique_item.photo.url(:large)}
+      = image_tag @unique_item.photo.url(:large), :style => 'width:100%'
 
 
 
