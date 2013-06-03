@@ -26,7 +26,14 @@ class UniqueItemsController < ApplicationController
   # GET /unique_items/new
   # GET /unique_items/new.json
   def new
-    @unique_item = UniqueItem.new status: true
+    if not params[:fuid].blank?
+      existing = UniqueItem.find_by_fuid(params[:fuid])
+      if existing
+        redirect_to unique_item_path(existing)
+        return
+      end
+    end
+    @unique_item = UniqueItem.new fuid: params[:fuid]
 
     respond_to do |format|
       format.html # new.html.erb

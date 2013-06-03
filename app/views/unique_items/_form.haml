@@ -5,6 +5,15 @@
         %li= msg
 
   .control-group
+    = f.label :fuid, "FUID"
+    - if f.object.fuid.blank?
+      .controls= f.text_field :fuid, :class => 'span12'
+    - else
+      .controls.well
+        = f.hidden_field :fuid
+        %h4= f.object.fuid
+
+  .control-group
     = f.check_box :loggable
     = f.label :loggable, :class => 'control-label'
   .control-group
