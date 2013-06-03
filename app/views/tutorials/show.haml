@@ -1,16 +1,18 @@
+%h1
+  Object:
+  = @tutorial.unique_item.name
+
+%h5 Tutorial:
+
 %p#notice= notice
-%p
-  %b Fuid:
-  = @tutorial.fuid
-%p
-  %b User:
-  = @tutorial.user_id
-%p
-  %b Body:
-  = @tutorial.body
-%p
-  %b Url:
-  = @tutorial.url
-= link_to 'Edit', edit_unique_item_tutorial_path(@tutorial.unique_item, @tutorial)
-|
-= link_to 'Back', unique_item_path(@tutorial.unique_item)
+
+- if @tutorial.user
+  %p
+    %b User:
+    = @tutorial.user.name
+
+%pre= @tutorial.body
+%br/
+
+.row-fluid
+  = link_to 'Edit', edit_unique_item_tutorial_path(@tutorial.unique_item, @tutorial), :class => 'btn btn-info span12'

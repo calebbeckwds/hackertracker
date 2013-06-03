@@ -39,7 +39,7 @@
     .closed_tickets{style:'display:none'}
       - @unique_item.tickets.inactive.each do |ticket|
         %a.row-fluid{href: unique_item_ticket_path(@unique_item, ticket)}
-          %a.span12.btn
+          .span12.btn
             (
             = ticket.user ? ticket.user.name : "USERNAME"
             )

@@ -1,17 +1,21 @@
 
 %h1
-  Ticket:
+  Object:
   = @ticket.unique_item.name
+
 %p#notice= notice
-%p
-  %b User:
-  = @ticket.user_id
+
+- if @ticket.user
+  %p
+    %b User:
+    = @ticket.user.name
+
 %p
   %b Status:
-  = @ticket.status
-%p
-  %b Body:
-  = @ticket.body
+  = @ticket.status ? 'active' : 'resolved'
+
+%pre= @ticket.body
+%br/
 
 - if @ticket.status
   .row-fluid
