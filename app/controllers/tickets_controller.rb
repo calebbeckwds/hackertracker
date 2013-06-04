@@ -26,7 +26,7 @@ class TicketsController < ApplicationController
   # GET /tickets/new
   # GET /tickets/new.json
   def new
-    @ticket = Ticket.new fuid: params[:unique_item_id]
+    @ticket = Ticket.new fuid: params[:unique_item_id], status: true
 
     respond_to do |format|
       format.html # new.html.erb
