@@ -7,13 +7,10 @@
       %ul
         - @ticket.errors.full_messages.each do |msg|
           %li= msg
-  .field
-    = f.label :status, 'Active Ticket?'
-    %br/
+  .row-fluid
     = f.check_box :status
-  .field
-    = f.label :body
-    %br/
-    = f.text_area :body
-  .actions
-    = f.submit
+    = f.label :status, 'Active Ticket?'
+  .row-fluid
+    = f.text_area :body, :placeholder => 'ticket description', :class => 'span12'
+  .row-fluid
+    = f.submit, :class => 'btn btn-info span12'
