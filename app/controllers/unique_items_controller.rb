@@ -19,7 +19,9 @@ class UniqueItemsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @unique_item }
+      format.json { 
+        render :json => @unique_item.to_json(:include => [:tickets, :tutorials, :caveats, :logs, :contacts])
+      }
     end
   end
 
