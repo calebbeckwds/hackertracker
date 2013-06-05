@@ -8,7 +8,7 @@ class UniqueItemsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @unique_items }
+      format.json { render json: { unique_items: @unique_items } }
     end
   end
 
