@@ -20,10 +20,18 @@ class UniqueItem < ActiveRecord::Base
     boolean :loggable
     boolean :ticketable
     text :area
-    text :logs      { logs.collect(&:body).join(' ')      }
-    text :tickets   { tickets.collect(&:body).join(' ')   }
-    text :caveats   { caveats.collect(&:body).join(' ')   }
-    text :tutorials { tutorials.collect(&:body).join(' ') }
+    text :logs do
+      logs.collect(&:body).join(' ')      
+    end
+    text :tickets do
+      tickets.collect(&:body).join(' ') 
+    end
+    text :caveats do
+      caveats.collect(&:body).join(' ')
+    end
+    text :tutorials do
+      tutorials.collect(&:body).join(' ')
+    end
     text :contacts  do
       contacts.collect { |c| [c.phone,c.email,c.name,c.handle].join(' ') }
     end
@@ -43,9 +51,13 @@ class UniqueItem < ActiveRecord::Base
 
   def semantic_attr(attr)
     @neighbors ||= UniqueItem.search do
-      fulltext 'is'
+      # allmytexts = [ name, area ] + logs.collect(&:body) + tickets.collect(&:body) +
+      #     caveats.collect(&:body) + tutorials.collect(&:body) + 
+      #     contacts.collect { |c| [c.phone,c.email,c.name,c.handle].join(' ') }
+      # fulltext allmytexts.join(' ')
+      fulltext area
     end.results
-    @neighbors.collect(&attr).flatten.uniq
+    send(attr) + @neighbors.collect(&attr).flatten.uniq
   end
 
   def semantic_logs; semantic_attr :logs; end
