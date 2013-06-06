@@ -6,4 +6,12 @@ class Ticket < ActiveRecord::Base
 
   scope :active, where(status:true)
   scope :inactive, where(status:false)
+
+  def active?
+  	!!status
+  end
+
+  def inactive?
+  	!status
+  end
 end

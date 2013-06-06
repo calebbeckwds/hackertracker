@@ -15,6 +15,20 @@ class UniqueItem < ActiveRecord::Base
     :thumb => '100x100>'
   }
 
+  searchable do
+    text :name
+    boolean :loggable
+    boolean :ticketable
+    text :area
+    text :logs      { logs.collect(&:body).join(' ')      }
+    text :tickets   { tickets.collect(&:body).join(' ')   }
+    text :caveats   { caveats.collect(&:body).join(' ')   }
+    text :tutorials { tutorials.collect(&:body).join(' ') }
+    text :contacts  do
+      contacts.collect { |c| [c.phone,c.email,c.name,c.handle].join(' ') }
+    end
+  end
+
   def needs_work?
     tickets.where(status: true).length > 0
   end
@@ -22,7 +36,32 @@ class UniqueItem < ActiveRecord::Base
   def ticketable?
   	!!ticketable
   end
+
   def loggable?
   	!!loggable
   end
+
+  def semantic_attr(attr)
+    @neighbors ||= UniqueItem.search do
+      fulltext 'is'
+    end.results
+    @neighbors.collect(&attr).flatten.uniq
+  end
+
+  def semantic_logs; semantic_attr :logs; end
+  def semantic_contacts; semantic_attr :contacts; end
+  def semantic_caveats; semantic_attr :caveats; end
+  def semantic_tutorials; semantic_attr :tutorials; end
+  def semantic_tickets; semantic_attr :tickets; end
+
+  def as_json(options=nil)
+    super(options).merge!({
+      semantic_logs: semantic_logs,
+      semantic_contacts: semantic_contacts,
+      semantic_caveats: semantic_caveats,
+      semantic_tutorials: semantic_tutorials,
+      semantic_tickets: semantic_tickets
+    })
+  end
+
 end
