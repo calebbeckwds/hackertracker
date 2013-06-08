@@ -11,7 +11,8 @@
     = "FUID: #{@unique_item.fuid}"
     - if @unique_item.area
       %br/
-      = "Area: #{@unique_item.area.name}"
+      Area: 
+      = link_to @unique_item.area.name, area_path(@unique_item.area)
 
 - unless @unique_item.photo_file_name.blank?
   .row-fluid

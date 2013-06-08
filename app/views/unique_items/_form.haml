@@ -25,7 +25,7 @@
     .controls= f.file_field :photo
   .control-group
     = f.label :area, :class => 'control-label'
-    .controls= f.select :area_id, Area.all.collect {|a| [a.name, a.id]}
+    .controls= f.select :area_id, Area.all.collect {|a| [a.name, a.id]}, {}, { :class => 'span12' }
   .control-group
     = f.label :name, :class => 'control-label'
     .controls= f.text_field :name, :class => 'span12'
