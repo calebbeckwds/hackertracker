@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130608111846) do
+ActiveRecord::Schema.define(:version => 20130608113436) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20130608111846) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.integer  "ordering"
+    t.integer  "sequence"
   end
 
   create_table "caveats", :force => true do |t|
