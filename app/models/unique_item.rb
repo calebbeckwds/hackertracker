@@ -8,6 +8,7 @@ class UniqueItem < ActiveRecord::Base
   has_many :tickets, :foreign_key => :fuid
 
   validates_presence_of :name, :area
+  validates_uniqueness_of :name
 
   has_attached_file :photo, :styles => {
     :large => '900x900>',
