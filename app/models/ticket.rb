@@ -4,8 +4,8 @@ class Ticket < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :fuid, :body
 
-  scope :active, where(status:true)
-  scope :inactive, where(status:false)
+  scope :active, where(status: true)
+  scope :inactive, where(status: false)
 
   after_save :touch_unique_item
   def touch_unique_item

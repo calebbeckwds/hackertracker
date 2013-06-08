@@ -4,6 +4,7 @@
 
 .row-fluid
   %h1.span12.alert.alert-info
+    Area:
     = @area.name
     %a.btn.btn-info{href: edit_area_path(@area)} Edit
 
@@ -19,7 +20,7 @@
   %h3.span12.alert.alert-success
     Open Tickets
 - if @area.tickets.any? 
-  - @area.tickets.each do |ticket|
+  - @area.tickets.active.each do |ticket|
     %a.row-fluid.list-section{href: unique_item_ticket_path(ticket.unique_item, ticket)}
       .span12.btn.btn-warning
         %strong
