@@ -4,7 +4,7 @@ class UniqueItemsController < ApplicationController
   # GET /unique_items
   # GET /unique_items.json
   def index
-    @unique_items = UniqueItem.order('updated_at desc')
+    @unique_items = UniqueItem.order(:updated_at)
 
     respond_to do |format|
       format.html # index.html.erb
