@@ -19,7 +19,7 @@ class UniqueItemsController < ApplicationController
     if @unique_items.length > 0
       redirect_to @unique_items.first
     else
-      flash[:notice] = "Could not find an item by that name"
+      flash[:error] = "Could not find an item by that name"
       redirect_to unique_items_path
     end
   end
