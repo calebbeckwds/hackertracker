@@ -6,7 +6,7 @@
 .row-fluid
   .span12
     %h2.pagination-centered By Area
-- Area.order('sequence desc').each do |area|
+- Area.order('sequence desc').sort{|a,b| (a.needs_work? ? 0:1) <=> (b.needs_work? ? 0:1)}.each do |area|
   .row-fluid
     %a.span12.btn{href: area_path(area), :class => ( area.needs_work? ? 'btn-warning' : 'btn-info')}
       %h1= area.name
