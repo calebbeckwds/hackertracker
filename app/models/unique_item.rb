@@ -7,6 +7,8 @@ class UniqueItem < ActiveRecord::Base
   has_many :tutorials, :foreign_key => :fuid
   has_many :tickets, :foreign_key => :fuid
 
+  belongs_to :area
+
   validates_presence_of :name, :area
   validates_uniqueness_of :name
 

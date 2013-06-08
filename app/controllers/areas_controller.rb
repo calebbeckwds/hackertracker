@@ -1,4 +1,6 @@
 class AreasController < ApplicationController
+  layout 'famiapp'
+
   # GET /areas
   # GET /areas.json
   def index

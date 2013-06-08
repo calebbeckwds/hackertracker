@@ -67,8 +67,8 @@
   - @unique_item.semantic_caveats.each do |caveat|
     .row-fluid
       .span12
-        - unless log.user.nil?
-          = "<< #{log.user.name} >>"
+        - unless caveat.user.nil?
+          = "<< #{caveat.user.name} >>"
         = caveat.body
 
 .row-fluid.list-section
