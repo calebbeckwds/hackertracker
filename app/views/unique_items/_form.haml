@@ -6,12 +6,13 @@
 
   .control-group
     = f.label :fuid, "FUID"
-    - if f.object.fuid.blank?
-      .controls= f.text_field :fuid, :class => 'span12'
-    - else
-      .controls.well
-        = f.hidden_field :fuid
-        %h4= f.object.fuid
+    / - if f.object.fuid.blank?
+    /   .controls= f.text_field :fuid, :class => 'span12'
+    / - else
+    /   .controls.well
+    /     = f.hidden_field :fuid
+    /     %h4= f.object.fuid
+    .controls= f.text_field :fuid, :class => 'span12' 
 
   .control-group
     = f.check_box :loggable
