@@ -1,5 +1,5 @@
 class Area < ActiveRecord::Base
-  attr_accessible :desc, :name, :photo
+  attr_accessible :desc, :name, :photo, :ordering
 
   has_many :unique_items
   has_many :tickets, :through => :unique_items
