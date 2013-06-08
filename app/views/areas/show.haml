@@ -17,20 +17,7 @@
 
 .row-fluid.list-section
   %h3.span12.alert.alert-success
-    Items
-
-- if @area.unique_items.length > 0
-  - @area.unique_items.reverse.sort{|a,b| (a.needs_work? ? 0:1) <=> (b.needs_work? ? 0:1)}.each do |unique_item|
-    .row-fluid
-      %a.span12.btn{href: unique_item_path(unique_item), class: ( unique_item.needs_work? ? 'btn-warning':'' )}
-        %h1= unique_item.name
-- else
-  .row-fluid
-    .span12 no items found :(
-
-.row-fluid.list-section
-  %h3.span12.alert.alert-success
-    Tickets
+    Open Tickets
 - if @area.tickets.any? 
   - @area.tickets.each do |ticket|
     %a.row-fluid.list-section{href: unique_item_ticket_path(ticket.unique_item, ticket)}
@@ -59,6 +46,21 @@
 - else
   .row-fluid
     .span12 no tickets found
+
+.row-fluid.list-section
+  %h3.span12.alert.alert-success
+    Items
+
+- if @area.unique_items.length > 0
+  - @area.unique_items.reverse.sort{|a,b| (a.needs_work? ? 0:1) <=> (b.needs_work? ? 0:1)}.each do |unique_item|
+    .row-fluid
+      %a.span12.btn{href: unique_item_path(unique_item), class: ( unique_item.needs_work? ? 'btn-warning':'' )}
+        %h1= unique_item.name
+- else
+  .row-fluid
+    .span12 no items found :(
+
+
 
 
 / .row-fluid.list-section
