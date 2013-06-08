@@ -7,6 +7,11 @@ class Ticket < ActiveRecord::Base
   scope :active, where(status:true)
   scope :inactive, where(status:false)
 
+  after_save :touch_unique_item
+  def touch_unique_item
+    self.unique_item.touch
+  end
+
   def active?
   	!!status
   end
