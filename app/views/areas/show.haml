@@ -33,10 +33,15 @@
     Tickets
 - if @area.tickets.any? 
   - @area.tickets.each do |ticket|
-    %a.row-fluid{href: unique_item_ticket_path(ticket.unique_item, ticket)}
+    %a.row-fluid.list-section{href: unique_item_ticket_path(ticket.unique_item, ticket)}
       .span12.btn.btn-warning
-        - if ticket.user
-          = "<< #{ticket.user.name} >>"
+        %strong
+          <<
+          = ticket.unique_item.name
+          - if ticket.user
+            \-\-
+            = ticket.user.name
+          >>
         = ticket.body
 
   .row-fluid
