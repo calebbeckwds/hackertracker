@@ -1,4 +1,7 @@
 Hackertracker::Application.routes.draw do
+  resources :areas
+
+
   resources :unique_items do
     resources :contacts
     resources :caveats
