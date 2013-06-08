@@ -1,3 +1,13 @@
+%br/
+
+.row-fluid.search_by_name
+  = form_tag search_unique_items_path, :class => 'span12 well' do |f|
+    = text_field_tag :term, '', :class => 'span12'
+    = submit_tag 'Search by Name', :class => 'btn span12'
+
+.row-fluid
+  .span12
+    %h2.pagination-centered By Area
 - Area.order('sequence desc').each do |area|
   .row-fluid
     %a.span12.btn.btn-success{href: area_path(area)}

@@ -12,6 +12,17 @@ class UniqueItemsController < ApplicationController
     end
   end
 
+  # POST /unique_items/search
+  # POST /unique_items/search.json
+  def search
+    @unique_items = UniqueItem.where('name like :term', :term => "%#{params[:term]}%")
+    if @unique_items.length > 0
+      redirect_to @unique_items.first
+    else
+      flash[:notice] = "Could not find an item by that name"
+    end
+  end
+
   # GET /unique_items/1
   # GET /unique_items/1.json
   def show

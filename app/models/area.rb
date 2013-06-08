@@ -3,6 +3,7 @@ class Area < ActiveRecord::Base
 
   has_many :unique_items
   has_many :tickets, :through => :unique_items
+  has_many :tutorials, :through => :unique_items
 
   validates_uniqueness_of :name
   
