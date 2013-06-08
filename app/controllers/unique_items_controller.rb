@@ -20,6 +20,7 @@ class UniqueItemsController < ApplicationController
       redirect_to @unique_items.first
     else
       flash[:notice] = "Could not find an item by that name"
+      redirect_to unique_items_path
     end
   end
 
