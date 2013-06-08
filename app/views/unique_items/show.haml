@@ -22,31 +22,32 @@
 
 
 
-.row-fluid.list-section
-  %h3.span12.alert.alert-success
-    Tickets
-    %a.btn{href: new_unique_item_ticket_path(@unique_item)} Add
+- if @unique_item.ticketable?
+  .row-fluid.list-section
+    %h3.span12.alert.alert-success
+      Tickets
+      %a.btn{href: new_unique_item_ticket_path(@unique_item)} Add
 
-  - @unique_item.tickets.active.each do |ticket|
-    %a.row-fluid{href: unique_item_ticket_path(@unique_item, ticket)}
-      .span12.btn.btn-warning
-        - if ticket.user
-          = "(#{ticket.user.name})"
-        = ticket.body
-
-- if @unique_item.tickets.inactive.any?
-  .row-fluid
-    %a.span12.show_closed_tickets{href:'#'} show closed tickets
-  .row-fluid
-    %a.span12.hide_closed_tickets{href:'#', style:'display:none'} hide closed tickets
-
-  .closed_tickets{style:'display:none'}
-    - @unique_item.tickets.inactive.each do |ticket|
+    - @unique_item.tickets.active.each do |ticket|
       %a.row-fluid{href: unique_item_ticket_path(@unique_item, ticket)}
-        .span12.btn
+        .span12.btn.btn-warning
           - if ticket.user
             = "(#{ticket.user.name})"
-          = ticket.body.html_safe
+          = ticket.body
+
+  - if @unique_item.tickets.inactive.any?
+    .row-fluid
+      %a.span12.show_closed_tickets{href:'#'} show closed tickets
+    .row-fluid
+      %a.span12.hide_closed_tickets{href:'#', style:'display:none'} hide closed tickets
+
+    .closed_tickets{style:'display:none'}
+      - @unique_item.tickets.inactive.each do |ticket|
+        %a.row-fluid{href: unique_item_ticket_path(@unique_item, ticket)}
+          .span12.btn
+            - if ticket.user
+              = "(#{ticket.user.name})"
+            = ticket.body.html_safe
 
 
 
