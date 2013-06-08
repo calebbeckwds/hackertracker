@@ -67,6 +67,8 @@
   - @unique_item.semantic_caveats.each do |caveat|
     .row-fluid
       .span12
+        - unless log.user.nil?
+          = "<< #{log.user.name} >>"
         = caveat.body
 
 .row-fluid.list-section
@@ -86,4 +88,7 @@
     - @unique_item.logs.order('created_at desc').each do |log|
       .row-fluid
         .span12
-          = "[#{log.created_at.strftime('%-m/%-d/%y %l:%M%P')}] #{log.body}"
+          = "[#{log.created_at.strftime('%-m/%-d/%y %l:%M%P')}]"
+          - unless log.user.nil?
+            = "<< #{log.user.name} >>"
+          = log.body
