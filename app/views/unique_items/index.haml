@@ -1,5 +1,5 @@
 %br/
-- @unique_items.reverse.each do |unique_item|
+- @unique_items.reverse.sort{|a,b| (a.needs_work? ? 0:1) <=> (b.needs_work? ? 0:1)}.each do |unique_item|
   .row-fluid
     %a.span12.btn{href: unique_item_path(unique_item), class: ( unique_item.needs_work? ? 'btn-warning':'' )}
       %h1= unique_item.name
