@@ -58,7 +58,7 @@ class UniqueItem < ActiveRecord::Base
       # fulltext allmytexts.join(' ')
       fulltext area
     end.results
-    send(attr) + @neighbors.collect(&attr).flatten.uniq
+    @neighbors.collect(&attr).flatten.uniq - send(attr)
   end
 
   def semantic_logs; semantic_attr :logs; end
