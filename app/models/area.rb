@@ -12,4 +12,8 @@ class Area < ActiveRecord::Base
     :medium => '300x300>', 
     :thumb => '100x100>'
   }
+
+  def needs_work?
+    tickets.where(status: true).length > 0
+  end
 end

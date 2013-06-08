@@ -18,6 +18,7 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
+gem 'embedly'
 
 # Gems used only for assets and not required
 # in production environments by default.

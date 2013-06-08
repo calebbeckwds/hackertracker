@@ -1,3 +1,5 @@
+require 'embedly'
+
 class UniqueItem < ActiveRecord::Base
   attr_accessible :area_id, :loggable, :name, :photo, :ticketable, :fuid
 
@@ -60,7 +62,7 @@ class UniqueItem < ActiveRecord::Base
       # fulltext allmytexts.join(' ')
       fulltext area
     end.results
-    @neighbors.collect(&attr).flatten.uniq - send(attr)
+    ( send(attr) + @neighbors.collect(&attr) ).flatten.uniq
   end
 
   def semantic_logs; semantic_attr :logs; end
