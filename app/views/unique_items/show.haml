@@ -56,7 +56,7 @@
   - @unique_item.tutorials.each do |tutorial|
     %a.row-fluid{href: tutorial.body.blank? ? tutorial.url : unique_item_tutorial_path(@unique_item, tutorial) }
       .span12.btn
-        - if tutorial.unique_item != @unique_item
+        - if tutorial.unique_item != @unique_item and @unique_item.area
           %strong= "<< #{tutorial.unique_item.name} >>"
         = tutorial.body.blank? ? tutorial.url : tutorial.body
 
