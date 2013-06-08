@@ -24,7 +24,7 @@
     Tickets
     %a.btn{href: new_unique_item_ticket_path(@unique_item)} Add
 
-  - @unique_item.semantic_tickets.select(&:active?).each do |ticket|
+  - @unique_item.tickets.active.each do |ticket|
     %a.row-fluid{href: unique_item_ticket_path(@unique_item, ticket)}
       .span12.btn.btn-warning
         (
@@ -72,7 +72,7 @@
   %h3.span12.alert.alert-success
     Contacts
     %a.btn{href: new_unique_item_contact_path(@unique_item)} Add
-  - @unique_item.semantic_contacts.each do |contact|
+  - @unique_item.contacts.each do |contact|
     .row-fluid
       .span12
         = [contact.handle, contact.name, contact.phone, contact.email].join '    --    '
@@ -82,7 +82,7 @@
     %h3.span12.alert.alert-success
       Logs
       %a.btn{href: new_unique_item_log_path(@unique_item)} Add
-    - @unique_item.semantic_logs.each do |log|
+    - @unique_item.logs.order('created_at desc').each do |log|
       .row-fluid
         .span12
-          = log.body
+          = "[#{log.created_at.strftime('%-m/%-d/%y %l:%M%P')}] #{log.body}"

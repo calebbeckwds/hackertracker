@@ -35,6 +35,7 @@ class UniqueItemsController < ApplicationController
         return
       end
     end
+    
     @unique_item = UniqueItem.new fuid: params[:fuid]
 
     respond_to do |format|
