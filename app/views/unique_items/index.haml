@@ -1,8 +1,13 @@
-%br/
-- @unique_items.reverse.sort{|a,b| (a.needs_work? ? 0:1) <=> (b.needs_work? ? 0:1)}.each do |unique_item|
+- Area.all.each do |area|
   .row-fluid
-    %a.span12.btn{href: unique_item_path(unique_item), class: ( unique_item.needs_work? ? 'btn-warning':'' )}
-      %h1= unique_item.name
+    %a.span12.btn.btn-success{href: area_path(area)}
+      %h1= area.name
+
+/%br/
+/- @unique_items.reverse.sort{|a,b| (a.needs_work? ? 0:1) <=> (b./needs_work? ? 0:1)}.each do |unique_item|
+/  .row-fluid
+/    %a.span12.btn{href: unique_item_path(unique_item), class: ( unique_item.needs_work? ? 'btn-warning':'' )}
+/      %h1= unique_item.name
 
 %br/
 %br/
