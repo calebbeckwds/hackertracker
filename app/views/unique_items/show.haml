@@ -10,7 +10,7 @@
   %h5.span12
     = "FUID: #{@unique_item.fuid}"
     %br/
-    = "Area: #{@unique_item.area}"
+    = "Area: #{@unique_item.area.name}"
 
 - unless @unique_item.photo_file_name.blank?
   .row-fluid

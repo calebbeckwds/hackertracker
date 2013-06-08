@@ -1,5 +1,5 @@
 class UniqueItem < ActiveRecord::Base
-  attr_accessible :area, :loggable, :name, :photo, :ticketable, :fuid
+  attr_accessible :area_id, :loggable, :name, :photo, :ticketable, :fuid
 
   has_many :logs, :foreign_key => :fuid
   has_many :contacts, :foreign_key => :fuid
