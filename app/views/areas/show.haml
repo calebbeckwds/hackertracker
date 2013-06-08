@@ -31,15 +31,22 @@
 .row-fluid.list-section
   %h3.span12.alert.alert-success
     Tickets
-- if @area.tickets.any? &:inactive?
+- if @area.tickets.any? 
+  - @area.tickets.each do |ticket|
+    %a.row-fluid{href: unique_item_ticket_path(ticket.unique_item, ticket)}
+      .span12.btn.btn-warning
+        - if ticket.user
+          = "<< #{ticket.user.name} >>"
+        = ticket.body
+
   .row-fluid
     %a.span12.show_closed_tickets{href:'#'} show closed tickets
   .row-fluid
     %a.span12.hide_closed_tickets{href:'#', style:'display:none'} hide closed tickets
 
   .closed_tickets{style:'display:none'}
-    - @area.tickets.select(&:inactive?).each do |ticket|
-      %a.row-fluid{href: unique_item_ticket_path(@unique_item, ticket)}
+    - @area.tickets.inactive.each do |ticket|
+      %a.row-fluid{href: unique_item_ticket_path(ticket.unique_item, ticket)}
         .span12.btn
           - if ticket.user
             = "(#{ticket.user.name})"
