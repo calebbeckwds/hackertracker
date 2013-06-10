@@ -22,7 +22,7 @@
 - if @area.tickets.any? 
   - @area.tickets.active.each do |ticket|
     %a.row-fluid.list-section{href: unique_item_ticket_path(ticket.unique_item, ticket)}
-      .span12.btn.btn-warning
+      .span12.btn{:class => class_for_ticket(ticket)}
         %strong
           <<
           = ticket.unique_item.name
