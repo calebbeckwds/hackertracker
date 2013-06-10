@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130603020513) do
+ActiveRecord::Schema.define(:version => 20130608113436) do
+
+  create_table "areas", :force => true do |t|
+    t.string   "name"
+    t.text     "desc"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.integer  "sequence"
+  end
 
   create_table "caveats", :force => true do |t|
     t.integer  "fuid"
@@ -85,7 +97,6 @@ ActiveRecord::Schema.define(:version => 20130603020513) do
   create_table "unique_items", :force => true do |t|
     t.boolean  "loggable"
     t.boolean  "ticketable"
-    t.string   "area"
     t.string   "name"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
@@ -94,6 +105,7 @@ ActiveRecord::Schema.define(:version => 20130603020513) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.string   "fuid"
+    t.integer  "area_id"
   end
 
   add_index "unique_items", ["fuid"], :name => "index_unique_items_on_fuid"

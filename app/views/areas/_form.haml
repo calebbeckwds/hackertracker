@@ -1,0 +1,17 @@
+= form_for(@area) do |f|
+  - if @area.errors.any?
+    - @area.errors.full_messages.each do |msg|
+      .alert.alert-error
+        %li= msg
+  .control-group
+    = f.label :name
+    .controls= f.text_field :name
+  .control-group
+    = f.label :desc
+    .controls= f.text_area :desc
+  .control-group
+    = f.label :photo
+    .controls= f.file_field :photo
+  .actions
+    = f.submit
+

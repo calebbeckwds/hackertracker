@@ -4,13 +4,16 @@
 
 .row-fluid
   %h1.span12.alert.alert-info
+    Item:
     = @unique_item.name
     %a.btn.btn-info{href: edit_unique_item_path(@unique_item)} Edit
 .row-fluid
   %h5.span12
     = "FUID: #{@unique_item.fuid}"
-    %br/
-    = "Area: #{@unique_item.area}"
+    - if @unique_item.area
+      %br/
+      Area: 
+      = link_to @unique_item.area.name, area_path(@unique_item.area)
 
 - unless @unique_item.photo_file_name.blank?
   .row-fluid
@@ -20,53 +23,58 @@
 
 
 - if @unique_item.ticketable?
-  .row-fluid
+  .row-fluid.list-section
     %h3.span12.alert.alert-success
       Tickets
       %a.btn{href: new_unique_item_ticket_path(@unique_item)} Add
+
     - @unique_item.tickets.active.each do |ticket|
       %a.row-fluid{href: unique_item_ticket_path(@unique_item, ticket)}
         .span12.btn.btn-warning
-          (
-          = ticket.user ? ticket.user.name : "USERNAME"
-          )
+          - if ticket.user
+            = "(#{ticket.user.name})"
           = ticket.body
+
   - if @unique_item.tickets.inactive.any?
     .row-fluid
       %a.span12.show_closed_tickets{href:'#'} show closed tickets
     .row-fluid
       %a.span12.hide_closed_tickets{href:'#', style:'display:none'} hide closed tickets
+
     .closed_tickets{style:'display:none'}
       - @unique_item.tickets.inactive.each do |ticket|
         %a.row-fluid{href: unique_item_ticket_path(@unique_item, ticket)}
           .span12.btn
-            (
-            = ticket.user ? ticket.user.name : "USERNAME"
-            )
+            - if ticket.user
+              = "(#{ticket.user.name})"
             = ticket.body.html_safe
 
 
 
 
-.row-fluid
+.row-fluid.list-section
   %h3.span12.alert.alert-success
     Howtos/Tutorials
     %a.btn{href: new_unique_item_tutorial_path(@unique_item)} Add
-  - @unique_item.tutorials.each do |tutorial|
+  - @unique_item.semantic_tutorials.each do |tutorial|
     %a.row-fluid{href: tutorial.body.blank? ? tutorial.url : unique_item_tutorial_path(@unique_item, tutorial) }
       .span12.btn
+        - if tutorial.unique_item != @unique_item
+          %strong= "<< #{tutorial.unique_item.name} >>"
         = tutorial.body.blank? ? tutorial.url : tutorial.body
 
-.row-fluid
+.row-fluid.list-section
   %h3.span12.alert.alert-success
     Caveats
     %a.btn{href: new_unique_item_caveat_path(@unique_item)} Add
   - @unique_item.caveats.each do |caveat|
     .row-fluid
       .span12
+        - unless caveat.user.nil?
+          = "<< #{caveat.user.name} >>"
         = caveat.body
 
-.row-fluid
+.row-fluid.list-section
   %h3.span12.alert.alert-success
     Contacts
     %a.btn{href: new_unique_item_contact_path(@unique_item)} Add
@@ -76,11 +84,14 @@
         = [contact.handle, contact.name, contact.phone, contact.email].join '    --    '
 
 - if @unique_item.loggable?
-  .row-fluid
+  .row-fluid.list-section
     %h3.span12.alert.alert-success
       Logs
       %a.btn{href: new_unique_item_log_path(@unique_item)} Add
-    - @unique_item.logs.each do |log|
+    - @unique_item.logs.order('created_at desc').each do |log|
       .row-fluid
         .span12
+          = "[#{log.created_at.strftime('%-m/%-d/%y %l:%M%P')}]"
+          - unless log.user.nil?
+            = "<< #{log.user.name} >>"
           = log.body

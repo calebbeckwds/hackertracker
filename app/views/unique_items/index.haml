@@ -1,12 +1,25 @@
-%br/
-- @unique_items.reverse.each do |unique_item|
-  .row-fluid
-    %a.span12.btn{href: unique_item_path(unique_item), class: ( unique_item.needs_work? ? 'btn-warning':'' )}
-      %h1= unique_item.name
-
-%br/
-%br/
+.row-fluid.search_by_name
+  = form_tag search_unique_items_path, :class => 'span12 well' do |f|
+    = text_field_tag :term, '', :class => 'span12'
+    = submit_tag 'Search by Name', :class => 'btn span12'
 
 .row-fluid
-  %a.span12.btn.btn-info{href: new_unique_item_path}
-    %h1 Create New FamiItem
+  .span12
+    %h2.pagination-centered By Area
+- Area.order('sequence desc').each do |area|
+  .row-fluid
+    %a.span12.btn{href: area_path(area), :class => ( area.needs_work? ? 'btn-warning' : 'btn-info')}
+      %h1= area.name
+
+/%br/
+/- @unique_items.reverse.sort{|a,b| (a.needs_work? ? 0:1) <=> (b./needs_work? ? 0:1)}.each do |unique_item|
+/  .row-fluid
+/    %a.span12.btn{href: unique_item_path(unique_item), class: ( unique_item.needs_work? ? 'btn-warning':'' )}
+/      %h1= unique_item.name
+
+%br/
+%br/
+
+/ .row-fluid
+/   %a.span12.btn.btn-info{href: new_unique_item_path}
+/     %h1 Create New FamiItem

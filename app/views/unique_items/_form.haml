@@ -12,6 +12,7 @@
       .controls.well
         = f.hidden_field :fuid
         %h4= f.object.fuid
+    /.controls= f.text_field :fuid, :class => 'span12' 
 
   .control-group
     = f.check_box :loggable
@@ -24,7 +25,7 @@
     .controls= f.file_field :photo
   .control-group
     = f.label :area, :class => 'control-label'
-    .controls= f.text_field :area, :class => 'span12'
+    .controls= f.select :area_id, Area.all.collect {|a| [a.name, a.id]}, {}, { :class => 'span12' }
   .control-group
     = f.label :name, :class => 'control-label'
     .controls= f.text_field :name, :class => 'span12'

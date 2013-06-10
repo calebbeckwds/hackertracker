@@ -4,11 +4,23 @@ class UniqueItemsController < ApplicationController
   # GET /unique_items
   # GET /unique_items.json
   def index
-    @unique_items = UniqueItem.all
+    @unique_items = UniqueItem.order(:updated_at)
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: { unique_items: @unique_items } }
+    end
+  end
+
+  # POST /unique_items/search
+  # POST /unique_items/search.json
+  def search
+    @unique_items = UniqueItem.where('name like :term', :term => "%#{params[:term]}%")
+    if @unique_items.length > 0
+      redirect_to @unique_items.first
+    else
+      flash[:error] = "Could not find an item by that name"
+      redirect_to unique_items_path
     end
   end
 
@@ -35,6 +47,7 @@ class UniqueItemsController < ApplicationController
         return
       end
     end
+    
     @unique_item = UniqueItem.new fuid: params[:fuid]
 
     respond_to do |format|
