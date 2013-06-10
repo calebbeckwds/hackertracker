@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130608113436) do
+ActiveRecord::Schema.define(:version => 20130610061952) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -81,8 +81,9 @@ ActiveRecord::Schema.define(:version => 20130608113436) do
     t.integer  "user_id"
     t.boolean  "status"
     t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "ticket_type"
   end
 
   create_table "tutorials", :force => true do |t|

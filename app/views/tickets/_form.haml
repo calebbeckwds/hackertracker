@@ -7,9 +7,15 @@
       %ul
         - @ticket.errors.full_messages.each do |msg|
           %li= msg
+  
+  - if not f.object.new_record?
+    .row-fluid
+      = f.check_box :status
+      = f.label :status, 'Active Ticket?'
+  - else
+    = f.hidden_field :status
   .row-fluid
-    = f.check_box :status
-    = f.label :status, 'Active Ticket?'
+    = f.enum_select :ticket_type
   .row-fluid
     = f.text_area :body, :placeholder => 'ticket description', :class => 'span12'
   .row-fluid

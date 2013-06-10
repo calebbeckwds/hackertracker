@@ -11,8 +11,29 @@
     = @ticket.user.name
 
 %p
-  %b Status:
-  = @ticket.status ? 'active' : 'resolved'
+  - if @ticket.bug?
+    - if @ticket.active?
+      %span.badge.badge-important Unresolved
+    - else
+      %span.badge.badge-info Resolved
+
+    %span.badge.badge-warning Bug
+
+  - else
+    - if @ticket.active?
+      %span.badge.badge-warning Pending
+    - else
+      %span.badge.badge-info Complete
+
+    - if @ticket.feature?
+      %span.badge.badge-info Feature
+    - elsif @ticket.suggestion?
+      %span.badge.badge-success Suggestion
+
+
+%p
+  %b Ticket Type:
+  = @ticket.ticket_type
 
 %h5 Ticket: 
 

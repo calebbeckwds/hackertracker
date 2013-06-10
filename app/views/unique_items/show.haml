@@ -30,7 +30,7 @@
 
     - @unique_item.tickets.active.each do |ticket|
       %a.row-fluid{href: unique_item_ticket_path(@unique_item, ticket)}
-        .span12.btn.btn-warning
+        .span12.btn{:class => class_for_ticket(ticket) }
           - if ticket.user
             = "(#{ticket.user.name})"
           = ticket.body
