@@ -31,4 +31,8 @@ $(document).ready(function() {
   })
 
   $('.disabled').attr('disabled', true)
+
+  document.addEventListener('page:change', function(e) {
+    ga('send', 'pageview')
+  })
 })
