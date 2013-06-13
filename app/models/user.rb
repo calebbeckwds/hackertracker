@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
 
   has_many :payments
 
+  has_many :photos
+
   after_create :associate_payments
 
   def admin?

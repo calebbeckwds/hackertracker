@@ -8,6 +8,7 @@ class UniqueItem < ActiveRecord::Base
   has_many :caveats, :foreign_key => :fuid
   has_many :tutorials, :foreign_key => :fuid
   has_many :tickets, :foreign_key => :fuid
+  has_many :photos, :foreign_key => :fuid
 
   belongs_to :area
 
